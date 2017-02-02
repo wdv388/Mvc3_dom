@@ -1,0 +1,102 @@
+﻿@model IEnumerable<MvcHOME.Electricity>
+
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayName("Поточні")
+        </th>
+        <th>
+            @Html.DisplayName("Попередні")
+        </th>
+        <th>
+            @Html.DisplayName("Різниця")
+        </th>
+        <th>
+            @Html.DisplayName("Пільга")
+        </th>
+        <th>
+            @Html.DisplayName("До ліміту")
+        </th>
+        <th>
+            @Html.DisplayName("Від ліміту")
+        </th>
+        <th>
+            @Html.DisplayName("Понад ліміт")
+        </th>
+        <th>
+            @Html.DisplayName("Сума пільгова")
+        </th>
+        <th>
+            @Html.DisplayName("Сума до ліміту")
+        </th>
+        <th>
+            @Html.DisplayName("Сума від ліміту")
+        </th>
+        <th>
+            @Html.DisplayName("Загалом")
+        </th>
+        <th>
+            @Html.DisplayName("Сума понад ліміт")
+        </th>
+        <th>
+            @Html.DisplayName("Дата")
+        </th>
+        <th>
+            @Html.DisplayName("Квартира")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ED)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Privelege)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.toLim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fromLim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.overLim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SumP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SumT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SumF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SumO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hom.Apartament_naber)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

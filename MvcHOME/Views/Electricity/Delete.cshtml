@@ -1,0 +1,117 @@
+﻿@model MvcHOME.Electricity
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Electricity</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EC)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EC)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EP)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EP)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ED)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ED)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Privelege)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Privelege)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.toLim)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.toLim)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.fromLim)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.fromLim)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.overLim)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.overLim)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SumP)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SumP)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SumT)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SumT)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SumF)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SumF)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Sum)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Sum)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SumO)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SumO)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Data)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Data)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Hom.ID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Hom.ID)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

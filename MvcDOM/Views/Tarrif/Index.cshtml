@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MvcDOM.Tarrif>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Тарифи по споживанню послуг по квартирно</h2>
+
+<p>
+    @Html.ActionLink("Hазад до квартир","Index","Home")
+    @Html.ActionLink("Дотати новий тариф для квартири", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+           Номер квартири
+        </th>
+        <th>
+           Холодна вода 
+        </th>
+        <th>
+          Гаряча вода  
+        </th>
+        <th>
+          Стоки гарячої води
+        </th>
+        <th>
+            Світло
+        </th>
+        <th>
+            Ліміт понад 150\250кВт
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+             @Html.DisplayFor(modelItem => item.Hom.Apartament_naber)
+        </td>
+        <td>
+           @Html.DisplayFor(modelItem => item.CW)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HW)
+        </td>
+        <td>
+           @Html.DisplayFor(modelItem => item.S) 
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.E) 
+        </td>
+        <td>
+           @Html.DisplayFor(modelItem => item.upEL150_250)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

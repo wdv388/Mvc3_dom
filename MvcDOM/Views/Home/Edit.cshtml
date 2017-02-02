@@ -1,0 +1,54 @@
+﻿@model MvcDOM.Hom
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Hom</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Apartament_naber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Apartament_naber)
+            @Html.ValidationMessageFor(model => model.Apartament_naber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Benefit)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Benefit)
+            @Html.ValidationMessageFor(model => model.Benefit)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Gas)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Gas)
+            @Html.ValidationMessageFor(model => model.Gas)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

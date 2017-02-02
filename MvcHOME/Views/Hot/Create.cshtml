@@ -1,0 +1,125 @@
+﻿@model MvcHOME.Hot_Water
+
+@{
+    ViewBag.Title = "Create";
+}
+<script src="~/Scripts/Hot_water.js"></script>
+<h2>Додати показники для квартири №<span class="label label-success"> @ViewBag.nuber </span></h2><h6>Тариф на гарячу воду <span class="badge">@ViewBag.tarrif</span> , пільга(<span class="badge">@ViewBag.benefit</span> )</h6>
+@*<label >Тариф на гарячу воду</label>
+<input type="text" disabled="disabled" value="" id="tarrif"/>
+<label>Квартира</label>
+<input type="text" disabled="disabled" value="" id="apartament" />*@
+  <div id="benefit" hidden="hidden">@ViewBag.benefit </div>
+@using (Html.BeginForm("Create", "Hot", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+     <div class="row"><h1 class="col-md-6 col-md-offset-3" >  Гаряча вода</h1> </div>      
+    <fieldset>
+        <legend></legend>
+         <input type="text"  name="HomID" value="@ViewBag.ID" hidden="hidden" />
+
+        <div class="form-group">
+          @Html.Label("Показник0", new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.HW1, new { @class = "form-control" ,@placeholder="Лічильник0"})
+            @Html.ValidationMessageFor(model => model.HW1)
+        </div>
+</div>
+        <div class="form-group">
+          @Html.Label("Показник1", new { @class = "col-md-2 control-label" })
+       
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.HW0, new { @class = "form-control",@placeholder="Лічильник1" })
+            @Html.ValidationMessageFor(model => model.HW0)
+        </div>
+ </div>
+        <div class="form-group">
+          @Html.Label("Разом", new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.HWT, new { @class = "form-control",@placeholder="Разом" })
+            @Html.ValidationMessageFor(model => model.HWT)
+        </div>
+</div>
+        <div class="form-group">
+          @Html.Label("Попередні", new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.HWP, new { @class = "form-control",@data="tooltip", @title=@ViewBag.HWT ,@placeholder=@ViewBag.HWT  })
+            @Html.ValidationMessageFor(model => model.HWP)
+        </div>
+</div>
+        <div class="form-group">
+          @Html.Label("Різниця", new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.HWD, new { @class = "form-control" ,@placeholder="Спожито"})
+            @Html.ValidationMessageFor(model => model.HWD)
+        </div>
+</div>
+        <div class="form-group">
+          @Html.Label("До сплати", new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.Sum, new { @class = "form-control",@placeholder="До сплати" })
+            @Html.ValidationMessageFor(model => model.Sum)
+        </div>
+</div>
+      @*  <div class="form-group">
+          @Html.Label("квартира", new { @class = "col-md-2 control-label" })
+       
+        <div class="col-md-4">
+            @Html.DropDownList("HomID", String.Empty)
+            @Html.ValidationMessageFor(model => model.HomID)
+        </div>
+ </div>*@
+        <div class="form-group">
+          @Html.Label("Дата", new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.Data, new { @class = "form-control",@placeholder="Рік_місяць_день" })
+            @Html.ValidationMessageFor(model => model.Data)
+        </div>
+</div>
+        <div class="form-group">
+            @Html.Label("Зберігти та Додати показники стоків", new { @class="col-md-2 control-label"})
+            <div class="col-md-2">
+             @Html.CheckBox("Next")
+            </div>
+        
+        </div>
+        <div class="form-group">
+        <div class="col-md-6 col-md-offset-4" >
+            <input type="submit" value="Додати" class="btn btn-default" />
+        </div>
+    </div>
+    </fieldset>
+}
+
+<ul class="pagination">
+
+   <li>  @Html.ActionLink("Back to List", "Index")</li>
+
+    </ul>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script>
+  $(function() {
+      $("#Data").datepicker({
+          dateFormat: "yy-mm-dd"
+      });
+  });
+  </script>
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<script src="~/Content/jquery-ui-1.10.4/ui/jquery-ui.js"></script>      
+@*<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">*@
+<div>
+ @Html.Hidden("apartament", @ViewBag.nuber as string)
+@Html.Hidden("tarrif", @ViewBag.tarrif as string)
+
+</div>

@@ -1,0 +1,60 @@
+﻿@model MvcHOME.Limits
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Limits</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.E_L1)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.E_L1)
+            @Html.ValidationMessageFor(model => model.E_L1)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.E_L2)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.E_L2)
+            @Html.ValidationMessageFor(model => model.E_L2)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.E_L3)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.E_L3)
+            @Html.ValidationMessageFor(model => model.E_L3)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HomID, "Hom")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("HomID", String.Empty)
+            @Html.ValidationMessageFor(model => model.HomID)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

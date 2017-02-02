@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MvcHOME.Cold_Water>
+
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayName("Лічильник0")
+        </th>
+        <th>
+            @Html.DisplayName("Лічильник1")
+        </th>
+        <th>
+            @Html.DisplayName("Разом")
+        </th>
+        <th>
+            @Html.DisplayName("Попередні")
+        </th>
+        <th>
+            @Html.DisplayName("Спожито")
+        </th>
+        <th>
+            @Html.DisplayName("До сплати")
+        </th>
+        <th>
+            @Html.DisplayName("Квартира")
+        </th>
+        <th>
+            @Html.DisplayName("Дата")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CW1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CW0)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CWT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CWP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CWD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hom.Apartament_naber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

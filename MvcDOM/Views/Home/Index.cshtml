@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MvcDOM.Hom>
+
+@{
+    ViewBag.Title = "квартира";
+}
+
+<h2>Квартири</h2>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<p>
+    @Html.ActionLink("Дотати нову квартиру", "Create")
+</p>
+<div class="row"> 
+    <div class="col-md-6"> 
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>
+           Номер квартири @*@Html.DisplayNameFor(model => model.Apartament_naber)*@
+        </th>
+        <th>
+           Пільга @*@Html.DisplayNameFor(model => model.Benefit)*@
+        </th>
+        <th>
+           Газова плита? @*@Html.DisplayNameFor(model => model.Gas)*@
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apartament_naber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Benefit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gas)
+        </td>
+        <td>
+            @Html.ActionLink("редагування", "Edit", new { id=item.ID }) |
+            @*@Html.ActionLink("Details", "Details", new { id=item.ID }) |*@
+            @Html.ActionLink("видалення", "Delete", new { id=item.ID }) |
+            @Html.ActionLink("тариф по квартирі", "Details", "Tarrif", new {id=item.ID },null) |
+            @Html.ActionLink("до показників споживання","Index","Records",new{id=item.ID},null)
+
+            
+        </td>
+    </tr>
+}
+
+</table> 
+
+    </div>
+</div>

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Mvc3_dom.Models.Coldwater>
+
+@{
+    ViewBag.Title = "Ind";
+}
+
+<h2>Ind</h2>
+
+<table>
+    <tr>
+        
+        <th>
+            Previous
+        </th>
+     
+        <th>
+            date
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.Previous)
+        </td>
+     
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+       
+    </tr>
+}
+
+</table>

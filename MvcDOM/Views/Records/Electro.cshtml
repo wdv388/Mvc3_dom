@@ -1,0 +1,72 @@
+﻿@model IEnumerable<MvcDOM.Electricity>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<strong>Світло </strong>
+<p> 
+@Html.ActionLink("+Додати показники по світлу","Create","Electricity",new{id=ViewBag.Nuber},null)
+</p>
+<div class="row"> 
+    <div class="col-md-6"> 
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>
+          Поточні
+        </th>
+        <th>
+          Попередні
+        </th>
+        <th>
+          Різниця
+        </th>
+        <th>
+           Спожито
+        </th>
+        <th>
+          Спожито понад норму
+        </th>
+        <th>
+          Сума до сплати
+        </th>
+        <th>
+          Квартира
+        </th>
+        <th>
+          Дата
+        </th>
+       @* <th></th>*@
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ED)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.L150_250)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.upL150_250)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HomID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+       
+    </tr>
+}
+
+</table>
+        </div>
+    </div>

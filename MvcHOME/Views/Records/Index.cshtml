@@ -1,0 +1,198 @@
+﻿@model IEnumerable<MvcHOME.Cold_Water>
+ <h2> <span class="label label-success"> Квартира №@ViewBag.apartament \загальна сума= @ViewBag.sumall</span></h2>
+@*<strong>Холодна вода</strong>*@
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+         <span class="label label-primary">  Холодна вода #1 Тариф  @ViewBag.tar грн </span>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+    <ul class="pagination">
+        <li>@Html.ActionLink("+Додати показання лічильника холодної води", "Create", "Cold", new { id = ViewBag.Nuber },null )</li><li>Холодна вода</li>
+    </ul>
+
+<!-- Button trigger modal -->
+@*<button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myModal">
+  +Додати показання лічильника холодної води
+</button>*@
+<div class="row"> 
+    <div class="col-md-6"> 
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>
+           Лічильник1
+        </th>
+        <th>
+           Лічильник2
+        </th>
+        <th>
+         Разом за лічильником 1 та 2
+        </th>
+        <th>
+           Попередні показники
+        </th>
+        <th>
+          Різниця
+        </th>
+        <th>
+           Сума до сплати
+        </th>
+        <th>
+         Дата  
+        </th>
+        <th>
+         Квартира
+        </th>
+       @* <th></th>*@
+    </tr>
+    
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CW1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CW0)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CWT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CWP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CWD)
+        </td>
+        <td >
+          <strong >   @Html.DisplayFor(modelItem => item.Sum)</strong>
+        </td>
+        <td>
+           @Html.DisplayFor(modelItem => item.Data)  
+        </td>
+        <td>
+           @Html.DisplayFor(modelItem => item.Hom.Apartament_naber)
+        </td>
+        
+    </tr>
+}
+ 
+</table>
+        </div>
+    </div>
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+         <span class="label label-danger" id="hwsp"> Гаряча вода #2 Тариф @ViewBag.tarH грн  </span> 
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+@Html.Action("Hot", "Records")
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+         <span class="label label-default" id="sspn">Каналізація #3 Тариф @ViewBag.tarS грн   </span> 
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+     @Html.Action("Sewage","Records")  
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFvo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFvo" aria-expanded="false" aria-controls="collapseThree">
+        <span class="label label-warning" id="espn">Світло #4 Тариф @ViewBag.tarE Тариф @ViewBag.tarEE Тариф @ViewBag.tarEEE грн   </span>  
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFvo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+       @Html.Action("Electro","Records") 
+      </div>
+    </div>
+  </div>  
+</div>
+
+
+<!-- Modal -->
+@*<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Закрити</span></button>
+        <h4 class="modal-title" id="myModalLabel">Додавання показників лічильника холодної води</h4>
+      </div>
+      <div class="modal-body">
+        
+@Html.Action( "Create", "Cold", new { id = ViewBag.Nuber })...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+        @*<button type="button" class="btn btn-primary">Зберегти зміни</button>*@
+     @* </div>
+    </div>
+  </div>
+</div>*@
+
+
+<div>
+    <input type="hidden" value="@ViewBag.timeer" id="tmd" />
+  
+@*    @Ajax.ActionLink("Foobar load", "Sendmail", "Records", new AjaxOptions() { HttpMethod = "Get", UpdateTargetId = "Result" })*@
+</div>
+ 
+<script type="text/javascript">
+    $(document).ready(function () { 
+    var timenowchek = $('#tmd').val();
+    if (timenowchek) {
+
+        $('.label.label-primary').append('Увага! Поточні показники холодної води за минулий місяць')
+        var i = 1;
+        while (i <= 300) {
+            $('.label.label-primary').fadeOut(1000, function () {
+                $('.label.label-primary').addClass('label label-danger');
+                
+            });
+            $('.label.label-primary').fadeIn(1000, function () {
+          //  $('.label.label-primary').addClass('label label-danger');
+           
+            });
+           
+            i++;
+        }
+           
+     //   $('span').removeClass('label label-primary');
+       
+       // $('span').css( "label label-danger");
+       // alert("Увага! Поточні показники холодної води за минулий місяць");
+    }
+   
+    console.log(timenowchek);
+
+    });
+</script>
+

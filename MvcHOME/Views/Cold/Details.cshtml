@@ -1,0 +1,102 @@
+﻿@model MvcHOME.Cold_Water
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<div class="row"> 
+<div class="col-md-2 col-md-offset-3"> 
+    <div class=" panel panel-primary">
+     <div class="panel-heading">
+            Cold_Water
+</div>
+<div class="panel-body">
+    <div class="display-label">
+       <span class="badge">   @Html.DisplayNameFor(model => model.CW1)</span>
+    </div>
+    <div class="display-field">
+      <span class="label label-primary">  @Html.DisplayFor(model => model.CW1)</span>
+    </div>
+
+    <div class="display-label">
+       <span class="badge">   @Html.DisplayNameFor(model => model.CW0)</span>
+    </div>
+    <div class="display-field">
+    <span class="label label-primary">    @Html.DisplayFor(model => model.CW0)</span>
+    </div>
+
+    <div class="display-label">
+       <span class="badge">   @Html.DisplayNameFor(model => model.CWT)</span>
+    </div>
+    <div class="display-field">
+      <span class="label label-primary">  @Html.DisplayFor(model => model.CWT)</span>
+    </div>
+
+    <div class="display-label">
+      <span class="badge">    @Html.DisplayNameFor(model => model.CWP)</span>
+    </div>
+    <div class="display-field">
+     <span class="label label-primary">   @Html.DisplayFor(model => model.CWP)</span>
+    </div>
+
+    <div class="display-label">
+       <span class="badge">   @Html.DisplayNameFor(model => model.CWD)</span>
+    </div>
+    <div class="display-field">
+      <span class="label label-primary">  @Html.DisplayFor(model => model.CWD)</span>
+    </div>
+
+    <div class="display-label">
+     <span class="badge">     @Html.DisplayNameFor(model => model.Sum)</span>
+    </div>
+    <div class="display-field">
+     <span class="label label-primary">   @Html.DisplayFor(model => model.Sum)</span>
+    </div>
+
+    <div class="display-label">
+        <span class="badge">  @Html.DisplayNameFor(model => model.Hom.Apartament_naber)</span>
+    </div>
+    <div class="display-field">
+      <span class="label label-primary">  @Html.DisplayFor(model => model.Hom.Apartament_naber)</span>
+    </div>
+
+    <div class="display-label">
+       <span class="badge">   @Html.DisplayNameFor(model => model.Data)</span>
+    </div>
+    <div class="display-field">
+     <span class="label label-primary">   @Html.DisplayFor(model => model.Data)</span>
+    </div>
+
+</div>
+        </div>
+    </div>
+ </div>
+<div class="row"> 
+    <div class="col-md-2 col-md-offset-3"" > 
+      <div class=" panel panel-default">
+        <div class="panel-body">
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+         </div>
+    </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

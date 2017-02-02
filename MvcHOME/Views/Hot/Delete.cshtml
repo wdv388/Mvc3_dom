@@ -1,0 +1,75 @@
+﻿@model MvcHOME.Hot_Water
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Hot_Water</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HW1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HW1)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HW0)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HW0)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HWT)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HWT)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HWP)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HWP)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HWD)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HWD)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Sum)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Sum)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Hom.ID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Hom.ID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Data)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Data)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+      @Styles.Render("~/Content/bootstrap")
+    <link href="~/Content/jquery-ui-1.10.4/themes/base/jquery-ui.css" rel="stylesheet" />
+   
+    @Scripts.Render("~/bundles/bootstrap")
+    <ul class="nav nav-pills">
+    <li class ="active">@Html.ActionLink("Home", "Index", "Home")</li>
+    <li>@Html.ActionLink("Cold", "Index", "Cold")</li>
+    <li>@Html.ActionLink("Hot", "Index", "Hot")</li>
+      <li>@Html.ActionLink("Sewag","Index","Sewage")</li>
+        <li>@Html.ActionLink("Electricity","Index","Electricity")</li>
+        <li>@Html.ActionLink("Tarrif","Index","Tarrif")</li>
+   
+        <li>@Html.ActionLink("ShowTrend","ShowTrend","Home")</li>
+</ul>
+</head>
+<body>
+    <div>
+        @RenderBody()
+    
+
+
+          @RenderSection("scripts", required: false)
+    </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+﻿@model MvcDOM.Cold_Water
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Видалення</h2>
+
+<h3>Ви впевненні що хочете видалити ці записи ?</h3>
+<fieldset>
+    <legend>Холодна вода</legend>
+
+    <div class="display-label">
+        Лічильник1 
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CW1)
+    </div>
+
+    <div class="display-label">
+       Лічильник2 
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CW0)
+    </div>
+
+    <div class="display-label">
+       Разом за лічильником 1 та 2
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CWT)
+    </div>
+
+    <div class="display-label">
+       Попередні показники 
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CWP)
+    </div>
+
+    <div class="display-label">
+       Різниця  
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CWD)
+    </div>
+
+    <div class="display-label">
+       Сума до сплати 
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Sum)
+    </div>
+
+    <div class="display-label">
+       Квартира 
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Hom.ID)
+    </div>
+
+    <div class="display-label">
+      Дата 
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Data)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

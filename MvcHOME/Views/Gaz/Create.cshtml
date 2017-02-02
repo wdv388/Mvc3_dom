@@ -1,0 +1,103 @@
+﻿@model MvcHOME.Gas
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Створити</h2>
+
+@using (Html.BeginForm("Create", "Gaz", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Газ</legend>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GC,"Поточні", new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-2">
+            @Html.TextBoxFor(model => model.GC, new  { @class="form-control",  @placeholder="Поточні" })
+            @Html.ValidationMessageFor(model => model.GC)
+        </div>
+</div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.GP,"Попередні", new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-2">
+            @Html.TextBoxFor(model => model.GP, new  { @class="form-control",  @placeholder="Попередні" })
+            @Html.ValidationMessageFor(model => model.GP)
+        </div>
+</div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.GD,"Спожито", new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-2">
+            @Html.TextBoxFor(model => model.GD, new  { @class="form-control",  @placeholder="Спожито" })
+            @Html.ValidationMessageFor(model => model.GD)
+        </div>
+</div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Privelege,"Пільга", new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-2">
+            @Html.TextBoxFor(model => model.Privelege, new  { @class="form-control",  @placeholder="Пільга" })
+            @Html.ValidationMessageFor(model => model.Privelege)
+        </div>
+</div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Sum,"До сплати", new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-2">
+            @Html.TextBoxFor(model => model.Sum, new  { @class="form-control",  @placeholder="До сплати" })
+            @Html.ValidationMessageFor(model => model.Sum)
+        </div>
+</div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Data,"Дата", new { @class = "col-md-2 control-label" })
+       
+        <div class="col-md-2">
+            @Html.TextBoxFor(model => model.Data, new  { @class="form-control",  @placeholder="Дата" })
+            @Html.ValidationMessageFor(model => model.Data)
+        </div>
+ </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.HomID, "Hom", new { @class = "col-md-2 control-label" })
+       
+        <div class="col-md-2">
+            @Html.DropDownList("HomID", String.Empty)
+            @Html.ValidationMessageFor(model => model.HomID)
+        </div>
+ </div>
+        
+             <div class="form-group">
+           <div class="col-md-1">
+            <input type="submit" value="Create" class="btn btn-default" />
+               </div>
+         </div>
+        
+    </fieldset>
+}
+
+<div>
+    <ul class="pagination">
+        <li>
+  @Html.ActionLink("Back to List", "Index")
+        </li>
+    </ul>
+  
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script>
+  $(function() {
+      $("#Data").datepicker({
+          dateFormat: "yy-mm-dd"
+      });
+  });
+  </script>
+      <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">

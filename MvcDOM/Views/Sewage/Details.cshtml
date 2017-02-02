@@ -1,0 +1,71 @@
+﻿@model MvcDOM.Sewage
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Sewage</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.S1)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.S1)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.S0)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.S0)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ST)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ST)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SP)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SP)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SD)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SD)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Sum)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Sum)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Data)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Data)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Hom.ID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Hom.ID)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

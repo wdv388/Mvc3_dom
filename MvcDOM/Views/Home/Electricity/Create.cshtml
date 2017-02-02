@@ -1,0 +1,101 @@
+﻿@model MvcDOM.Electricity
+
+@{
+    ViewBag.Title = "Create";
+}
+
+   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="~/Scripts/Electricity.js"></script>
+<h2>Create</h2>
+ <label >Тариф на світло</label>
+<input type="text" disabled="disabled" value="@ViewBag.tarrif" id="tarrif"/>
+<label>Тариф на світло понад норму @ViewBag.gas кВт</label>
+<input type="text" disabled="disabled" value="@ViewBag.uptarrif" id="uptarrif" />
+<label>Квартира</label>
+<input type="text" disabled="disabled" value="@ViewBag.nuber" id="apartament" />
+  <div id="benefit" hidden="hidden">@ViewBag.benefit </div>
+<div id="gas" hidden="hidden">@ViewBag.gas</div>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Electricity</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EC,"Поточні показники")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EC)
+            @Html.ValidationMessageFor(model => model.EC)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EP,"Попередні показники")
+            (@ViewBag.EP)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EP)
+            @Html.ValidationMessageFor(model => model.EP)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ED,"Спожито")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ED)
+            @Html.ValidationMessageFor(model => model.ED)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.L150_250,"Спожито до 150_250кВт")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.L150_250)
+            @Html.ValidationMessageFor(model => model.L150_250)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.upL150_250,"Спожито понад 150_250кВт")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.upL150_250)
+            @Html.ValidationMessageFor(model => model.upL150_250)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sum,"Сума до сплати")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sum)
+            @Html.ValidationMessageFor(model => model.Sum)
+        </div>
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.HomID, "Hom")
+        </div>*@
+        <div class="editor-field">
+          <input type="text"  name="HomID" value="@ViewBag.ID" hidden="hidden" />
+           @* @Html.DropDownList("HomID", String.Empty)
+            @Html.ValidationMessageFor(model => model.HomID)*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Data,"Дата")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Data)
+            @Html.ValidationMessageFor(model => model.Data)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+     @Html.ActionLink("Назад до записів", "Index","Records", new {id=ViewBag.ID},null)
+</div>
+

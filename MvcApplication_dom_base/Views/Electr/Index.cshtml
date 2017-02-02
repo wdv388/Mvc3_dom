@@ -1,0 +1,90 @@
+﻿@model IEnumerable<MvcApplication_dom_base.Models.Electric>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>ELECTR</h2>
+<nav >
+
+
+<p class="nav">
+    @Html.ActionLink("Create New", "Create" )
+</p>
+
+</nav>
+<table class="features-table01">
+    <tr>
+        <th>
+            Поточні
+        </th>
+        <th>
+            Попередні
+        </th>
+        <th>
+            Спожито
+        </th>
+        <th>
+            Пільгові
+        </th>
+        <th>
+           Повна
+        </th>
+        <th>
+          Вартість пільгова
+        </th>
+        <th>
+          Вартість повна
+        </th>
+        <th>
+            До сплати
+        </th>
+        <th>
+            Дата
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Current)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Previous)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Difference)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Difference_half)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Difference_fullhalf)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price_half)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotaltoPay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+<p>
+    
+       @Html.PagingNavigator((int)Html.ViewData["PageNum"],(int)Html.ViewData["ItemsCount"],(int)Html.ViewData["PageSize"])
+
+</p>

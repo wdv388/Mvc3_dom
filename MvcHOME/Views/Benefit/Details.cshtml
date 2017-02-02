@@ -1,0 +1,64 @@
+﻿@model MvcHOME.Benefit
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Benefit</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Privilege)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Privilege)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Persons)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Persons)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.E)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.E)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CW)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CW)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HW)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HW)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.S)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.S)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Hom.ID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Hom.ID)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,96 @@
+﻿@model MvcHOME.Cold_Water
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Edit", "Cold", FormMethod.Post, new { @class = "form-horizontal", role = "form" })) 
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Cold_Water</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CW1, new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-2">
+            @Html.EditorFor(model => model.CW1, new  { @class="form-control" })
+            @Html.ValidationMessageFor(model => model.CW1)
+        </div>
+</div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CW0, new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-2">
+            @Html.EditorFor(model => model.CW0, new  { @class="form-control" })
+            @Html.ValidationMessageFor(model => model.CW0)
+        </div>
+</div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CWT, new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-2">
+            @Html.EditorFor(model => model.CWT, new  { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CWT)
+        </div>
+</div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CWP, new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-2">
+            @Html.EditorFor(model => model.CWP, new  { @class="form-control" })
+            @Html.ValidationMessageFor(model => model.CWP)
+        </div>
+</div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CWD, new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-2">
+            @Html.EditorFor(model => model.CWD, new  { @class="form-control" })
+            @Html.ValidationMessageFor(model => model.CWD)
+        </div>
+</div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Sum, new { @class = "col-md-2 control-label" })
+       
+        <div class="col-md-2">
+            @Html.EditorFor(model => model.Sum, new  { @class="form-control" })
+            @Html.ValidationMessageFor(model => model.Sum)
+        </div>
+ </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.HomID, "Hom", new { @class = "col-md-2 control-label" })
+       
+        <div class="col-md-2">
+            @Html.DropDownList("HomID", String.Empty)
+            @Html.ValidationMessageFor(model => model.HomID)
+        </div>
+ </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Data, new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-2">
+            @Html.EditorFor(model => model.Data, new  { @class="form-control" })
+            @Html.ValidationMessageFor(model => model.Data)
+        </div>
+</div>
+        <p>
+            <input type="submit" value="Save"  class="btn btn-default"/>
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval");
+@Scripts.Render("~/bundles/jqueryui")
+}

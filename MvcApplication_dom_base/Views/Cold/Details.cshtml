@@ -1,0 +1,75 @@
+﻿@model MvcApplication_dom_base.Models.Coldwater
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Coldwater</legend>
+
+    <div class="display-label">Current</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Current)
+    </div>
+
+    <div class="display-label">Current1</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Current1)
+    </div>
+
+    <div class="display-label">CurrentTotal</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CurrentTotal)
+    </div>
+
+    <div class="display-label">Previous</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Previous)
+    </div>
+
+    <div class="display-label">Difference</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Difference)
+    </div>
+
+    <div class="display-label">Price</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+
+    <div class="display-label">water_half</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.water_half)
+    </div>
+
+    <div class="display-label">Price_half</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price_half)
+    </div>
+
+    <div class="display-label">totaltopay_half</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.totaltopay_half)
+    </div>
+
+    <div class="display-label">totaltoplayfull_half</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.totaltoplayfull_half)
+    </div>
+
+    <div class="display-label">TotaltoPay</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TotaltoPay)
+    </div>
+
+    <div class="display-label">date</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.date)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

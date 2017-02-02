@@ -1,0 +1,725 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="HomItems" EntityType="Model1.Store.HomItems" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cold_WaterНабор" EntityType="Model1.Store.Cold_WaterНабор" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Hot_WaterНабор" EntityType="Model1.Store.Hot_WaterНабор" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ElectricityНабор" EntityType="Model1.Store.ElectricityНабор" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TarrifНабор" EntityType="Model1.Store.TarrifНабор" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SewageНабор" EntityType="Model1.Store.SewageНабор" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Benefit" EntityType="Model1.Store.Benefit" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GasНабор" EntityType="Model1.Store.GasНабор" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LimitsНабор" EntityType="Model1.Store.LimitsНабор" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="HomCold_Water" Association="Model1.Store.HomCold_Water">
+      <End Role="Hom" EntitySet="HomItems" />
+      <End Role="Cold_Water" EntitySet="Cold_WaterНабор" />
+    </AssociationSet>
+    <AssociationSet Name="HomHot_Water" Association="Model1.Store.HomHot_Water">
+      <End Role="Hom" EntitySet="HomItems" />
+      <End Role="Hot_Water" EntitySet="Hot_WaterНабор" />
+    </AssociationSet>
+    <AssociationSet Name="HomElectricity" Association="Model1.Store.HomElectricity">
+      <End Role="Hom" EntitySet="HomItems" />
+      <End Role="Electricity" EntitySet="ElectricityНабор" />
+    </AssociationSet>
+    <AssociationSet Name="HomTarrif" Association="Model1.Store.HomTarrif">
+      <End Role="Hom" EntitySet="HomItems" />
+      <End Role="Tarrif" EntitySet="TarrifНабор" />
+    </AssociationSet>
+    <AssociationSet Name="HomSewage" Association="Model1.Store.HomSewage">
+      <End Role="Hom" EntitySet="HomItems" />
+      <End Role="Sewage" EntitySet="SewageНабор" />
+    </AssociationSet>
+    <AssociationSet Name="HomBenefit" Association="Model1.Store.HomBenefit">
+      <End Role="Hom" EntitySet="HomItems" />
+      <End Role="Benefit" EntitySet="Benefit" />
+    </AssociationSet>
+    <AssociationSet Name="HomGas" Association="Model1.Store.HomGas">
+      <End Role="Hom" EntitySet="HomItems" />
+      <End Role="Gas" EntitySet="GasНабор" />
+    </AssociationSet>
+    <AssociationSet Name="HomLimits" Association="Model1.Store.HomLimits">
+      <End Role="Hom" EntitySet="HomItems" />
+      <End Role="Limits" EntitySet="LimitsНабор" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="HomItems">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Apartament_naber" Type="int" Nullable="false" />
+    <Property Name="Benefit" Type="bit" Nullable="false" />
+    <Property Name="Gas" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cold_WaterНабор">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CW1" Type="int" Nullable="false" />
+    <Property Name="CW0" Type="int" Nullable="false" />
+    <Property Name="CWT" Type="int" Nullable="false" />
+    <Property Name="CWP" Type="int" Nullable="false" />
+    <Property Name="CWD" Type="int" Nullable="false" />
+    <Property Name="Sum" Type="decimal" Nullable="false" />
+    <Property Name="HomID" Type="int" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Hot_WaterНабор">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HW1" Type="int" Nullable="false" />
+    <Property Name="HW0" Type="int" Nullable="false" />
+    <Property Name="HWT" Type="int" Nullable="false" />
+    <Property Name="HWP" Type="int" Nullable="false" />
+    <Property Name="HWD" Type="int" Nullable="false" />
+    <Property Name="Sum" Type="decimal" Nullable="false" />
+    <Property Name="HomID" Type="int" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ElectricityНабор">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EC" Type="int" Nullable="false" />
+    <Property Name="EP" Type="int" Nullable="false" />
+    <Property Name="ED" Type="int" Nullable="false" />
+    <Property Name="Privelege" Type="int" Nullable="false" />
+    <Property Name="toLim" Type="int" Nullable="false" />
+    <Property Name="fromLim" Type="int" Nullable="false" />
+    <Property Name="overLim" Type="int" Nullable="true" />
+    <Property Name="SumP" Type="decimal" Nullable="false" />
+    <Property Name="SumT" Type="decimal" Nullable="false" />
+    <Property Name="SumF" Type="decimal" Nullable="false" />
+    <Property Name="Sum" Type="decimal" Nullable="false" />
+    <Property Name="SumO" Type="decimal" Nullable="true" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="HomID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TarrifНабор">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CW" Type="decimal" Nullable="false" />
+    <Property Name="HW" Type="decimal" Nullable="false" />
+    <Property Name="S" Type="decimal" Nullable="false" />
+    <Property Name="E_T" Type="decimal" Nullable="false" />
+    <Property Name="E_F" Type="decimal" Nullable="false" />
+    <Property Name="E_O" Type="decimal" Nullable="true" />
+    <Property Name="HomID" Type="int" Nullable="false" />
+    <Property Name="Gas" Type="decimal" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SewageНабор">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="S1" Type="int" Nullable="false" />
+    <Property Name="S0" Type="int" Nullable="false" />
+    <Property Name="ST" Type="int" Nullable="false" />
+    <Property Name="SP" Type="int" Nullable="false" />
+    <Property Name="SD" Type="int" Nullable="false" />
+    <Property Name="Sum" Type="decimal" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="HomID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Benefit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Privilege" Type="smallint" Nullable="false" />
+    <Property Name="Persons" Type="smallint" Nullable="false" />
+    <Property Name="E" Type="decimal" Nullable="false" />
+    <Property Name="CW" Type="decimal" Nullable="false" />
+    <Property Name="HW" Type="decimal" Nullable="false" />
+    <Property Name="S" Type="decimal" Nullable="false" />
+    <Property Name="HomID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GasНабор">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GC" Type="int" Nullable="false" />
+    <Property Name="GP" Type="int" Nullable="false" />
+    <Property Name="GD" Type="int" Nullable="false" />
+    <Property Name="Privelege" Type="int" Nullable="true" />
+    <Property Name="Sum" Type="decimal" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="HomID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LimitsНабор">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="E_L1" Type="int" Nullable="false" />
+    <Property Name="E_L2" Type="int" Nullable="false" />
+    <Property Name="E_L3" Type="int" Nullable="false" />
+    <Property Name="HomID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="HomCold_Water">
+    <End Role="Hom" Type="Model1.Store.HomItems" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Cold_Water" Type="Model1.Store.Cold_WaterНабор" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hom">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Cold_Water">
+        <PropertyRef Name="HomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HomHot_Water">
+    <End Role="Hom" Type="Model1.Store.HomItems" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Hot_Water" Type="Model1.Store.Hot_WaterНабор" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hom">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Hot_Water">
+        <PropertyRef Name="HomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HomElectricity">
+    <End Role="Hom" Type="Model1.Store.HomItems" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Electricity" Type="Model1.Store.ElectricityНабор" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hom">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Electricity">
+        <PropertyRef Name="HomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HomTarrif">
+    <End Role="Hom" Type="Model1.Store.HomItems" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tarrif" Type="Model1.Store.TarrifНабор" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hom">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tarrif">
+        <PropertyRef Name="HomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HomSewage">
+    <End Role="Hom" Type="Model1.Store.HomItems" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Sewage" Type="Model1.Store.SewageНабор" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hom">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Sewage">
+        <PropertyRef Name="HomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HomBenefit">
+    <End Role="Hom" Type="Model1.Store.HomItems" Multiplicity="1" />
+    <End Role="Benefit" Type="Model1.Store.Benefit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hom">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Benefit">
+        <PropertyRef Name="HomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HomGas">
+    <End Role="Hom" Type="Model1.Store.HomItems" Multiplicity="1" />
+    <End Role="Gas" Type="Model1.Store.GasНабор" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hom">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Gas">
+        <PropertyRef Name="HomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="HomLimits">
+    <End Role="Hom" Type="Model1.Store.HomItems" Multiplicity="1" />
+    <End Role="Limits" Type="Model1.Store.LimitsНабор" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hom">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Limits">
+        <PropertyRef Name="HomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="HomItems" EntityType="Model1.Hom" />
+          <EntitySet Name="Cold_WaterНабор" EntityType="Model1.Cold_Water" />
+          <EntitySet Name="Hot_WaterНабор" EntityType="Model1.Hot_Water" />
+          <EntitySet Name="ElectricityНабор" EntityType="Model1.Electricity" />
+          <AssociationSet Name="HomCold_Water" Association="Model1.HomCold_Water">
+            <End Role="Hom" EntitySet="HomItems" />
+            <End Role="Cold_Water" EntitySet="Cold_WaterНабор" />
+          </AssociationSet>
+          <AssociationSet Name="HomHot_Water" Association="Model1.HomHot_Water">
+            <End Role="Hom" EntitySet="HomItems" />
+            <End Role="Hot_Water" EntitySet="Hot_WaterНабор" />
+          </AssociationSet>
+          <AssociationSet Name="HomElectricity" Association="Model1.HomElectricity">
+            <End Role="Hom" EntitySet="HomItems" />
+            <End Role="Electricity" EntitySet="ElectricityНабор" />
+          </AssociationSet>
+          <EntitySet Name="TarrifНабор" EntityType="Model1.Tarrif" />
+          <AssociationSet Name="HomTarrif" Association="Model1.HomTarrif">
+            <End Role="Hom" EntitySet="HomItems" />
+            <End Role="Tarrif" EntitySet="TarrifНабор" />
+          </AssociationSet>
+          <EntitySet Name="SewageНабор" EntityType="Model1.Sewage" />
+          <AssociationSet Name="HomSewage" Association="Model1.HomSewage">
+            <End Role="Hom" EntitySet="HomItems" />
+            <End Role="Sewage" EntitySet="SewageНабор" />
+          </AssociationSet>
+          <EntitySet Name="Benefit" EntityType="Model1.Benefit" />
+          <AssociationSet Name="HomBenefit" Association="Model1.HomBenefit">
+            <End Role="Hom" EntitySet="HomItems" />
+            <End Role="Benefit" EntitySet="Benefit" />
+          </AssociationSet>
+          <EntitySet Name="GasНабор" EntityType="Model1.Gas" />
+          <AssociationSet Name="HomGas" Association="Model1.HomGas">
+            <End Role="Hom" EntitySet="HomItems" />
+            <End Role="Gas" EntitySet="GasНабор" />
+          </AssociationSet>
+          <EntitySet Name="LimitsНабор" EntityType="Model1.Limits" />
+          <AssociationSet Name="HomLimits" Association="Model1.HomLimits">
+            <End Role="Hom" EntitySet="HomItems" />
+            <End Role="Limits" EntitySet="LimitsНабор" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Hom">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Apartament_naber" Nullable="false" />
+          <Property Type="Boolean" Name="Benefit" Nullable="false" />
+          <Property Type="Boolean" Name="Gas" Nullable="false" />
+          <NavigationProperty Name="Cold_Water" Relationship="Model1.HomCold_Water" FromRole="Hom" ToRole="Cold_Water" />
+          <NavigationProperty Name="Hot_Water" Relationship="Model1.HomHot_Water" FromRole="Hom" ToRole="Hot_Water" />
+          <NavigationProperty Name="Electricity" Relationship="Model1.HomElectricity" FromRole="Hom" ToRole="Electricity" />
+          <NavigationProperty Name="Tarrif" Relationship="Model1.HomTarrif" FromRole="Hom" ToRole="Tarrif" />
+          <NavigationProperty Name="Sewage" Relationship="Model1.HomSewage" FromRole="Hom" ToRole="Sewage" />
+          <NavigationProperty Name="Benefit1" Relationship="Model1.HomBenefit" FromRole="Hom" ToRole="Benefit" />
+          <NavigationProperty Name="Gas1" Relationship="Model1.HomGas" FromRole="Hom" ToRole="Gas" />
+          <NavigationProperty Name="Limits" Relationship="Model1.HomLimits" FromRole="Hom" ToRole="Limits" />
+        </EntityType>
+        <EntityType Name="Cold_Water">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CW1" Nullable="false" />
+          <Property Type="Int32" Name="CW0" Nullable="false" />
+          <Property Type="Int32" Name="CWT" Nullable="false" />
+          <Property Type="Int32" Name="CWP" Nullable="false" />
+          <Property Type="Int32" Name="CWD" Nullable="false" />
+          <Property Type="Decimal" Name="Sum" Nullable="false" />
+          <NavigationProperty Name="Hom" Relationship="Model1.HomCold_Water" FromRole="Cold_Water" ToRole="Hom" />
+          <Property Type="Int32" Name="HomID" Nullable="false" />
+          <Property Type="DateTime" Name="Data" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hot_Water">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="HW1" Nullable="false" />
+          <Property Type="Int32" Name="HW0" Nullable="false" />
+          <Property Type="Int32" Name="HWT" Nullable="false" />
+          <Property Type="Int32" Name="HWP" Nullable="false" />
+          <Property Type="Int32" Name="HWD" Nullable="false" />
+          <Property Type="Decimal" Name="Sum" Nullable="false" />
+          <NavigationProperty Name="Hom" Relationship="Model1.HomHot_Water" FromRole="Hot_Water" ToRole="Hom" />
+          <Property Type="Int32" Name="HomID" Nullable="false" />
+          <Property Type="DateTime" Name="Data" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Electricity">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="EC" Nullable="false" />
+          <Property Type="Int32" Name="EP" Nullable="false" />
+          <Property Type="Int32" Name="ED" Nullable="false" />
+          <Property Type="Int32" Name="Privelege" Nullable="false" />
+          <Property Type="Int32" Name="toLim" Nullable="false" />
+          <Property Type="Int32" Name="fromLim" Nullable="false" />
+          <Property Type="Int32" Name="overLim" Nullable="true" />
+          <Property Type="Decimal" Name="SumP" Nullable="false" />
+          <Property Type="Decimal" Name="SumT" Nullable="false" />
+          <Property Type="Decimal" Name="SumF" Nullable="false" />
+          <Property Type="Decimal" Name="Sum" Nullable="false" />
+          <NavigationProperty Name="Hom" Relationship="Model1.HomElectricity" FromRole="Electricity" ToRole="Hom" />
+          <Property Type="Decimal" Name="SumO" Nullable="true" />
+          <Property Type="DateTime" Name="Data" Nullable="false" />
+          <Property Type="Int32" Name="HomID" Nullable="false" />
+        </EntityType>
+        <Association Name="HomCold_Water">
+          <End Type="Model1.Hom" Role="Hom" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Model1.Cold_Water" Role="Cold_Water" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hom">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Cold_Water">
+              <PropertyRef Name="HomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HomHot_Water">
+          <End Type="Model1.Hom" Role="Hom" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Model1.Hot_Water" Role="Hot_Water" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hom">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Hot_Water">
+              <PropertyRef Name="HomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HomElectricity">
+          <End Type="Model1.Hom" Role="Hom" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Model1.Electricity" Role="Electricity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hom">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Electricity">
+              <PropertyRef Name="HomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tarrif">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Decimal" Name="CW" Nullable="false" />
+          <Property Type="Decimal" Name="HW" Nullable="false" />
+          <Property Type="Decimal" Name="S" Nullable="false" />
+          <Property Type="Decimal" Name="E_T" Nullable="false" />
+          <NavigationProperty Name="Hom" Relationship="Model1.HomTarrif" FromRole="Tarrif" ToRole="Hom" />
+          <Property Type="Decimal" Name="E_F" Nullable="false" />
+          <Property Type="Decimal" Name="E_O" Nullable="true" />
+          <Property Type="Int32" Name="HomID" Nullable="false" />
+          <Property Type="Decimal" Name="Gas" Nullable="false" />
+        </EntityType>
+        <Association Name="HomTarrif">
+          <End Type="Model1.Hom" Role="Hom" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Model1.Tarrif" Role="Tarrif" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hom">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Tarrif">
+              <PropertyRef Name="HomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Sewage">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="S1" Nullable="false" />
+          <Property Type="Int32" Name="S0" Nullable="false" />
+          <Property Type="Int32" Name="ST" Nullable="false" />
+          <Property Type="Int32" Name="SP" Nullable="false" />
+          <Property Type="Int32" Name="SD" Nullable="false" />
+          <Property Type="Decimal" Name="Sum" Nullable="false" />
+          <Property Type="DateTime" Name="Data" Nullable="false" />
+          <NavigationProperty Name="Hom" Relationship="Model1.HomSewage" FromRole="Sewage" ToRole="Hom" />
+          <Property Type="Int32" Name="HomID" Nullable="false" />
+        </EntityType>
+        <Association Name="HomSewage">
+          <End Type="Model1.Hom" Role="Hom" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Model1.Sewage" Role="Sewage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hom">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sewage">
+              <PropertyRef Name="HomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Benefit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int16" Name="Privilege" Nullable="false" />
+          <NavigationProperty Name="Hom" Relationship="Model1.HomBenefit" FromRole="Benefit" ToRole="Hom" />
+          <Property Type="Int16" Name="Persons" Nullable="false" />
+          <Property Type="Decimal" Name="E" Nullable="false" />
+          <Property Type="Decimal" Name="CW" Nullable="false" />
+          <Property Type="Decimal" Name="HW" Nullable="false" />
+          <Property Type="Decimal" Name="S" Nullable="false" />
+          <Property Type="Int32" Name="HomID" Nullable="false" />
+        </EntityType>
+        <Association Name="HomBenefit">
+          <End Type="Model1.Hom" Role="Hom" Multiplicity="1" />
+          <End Type="Model1.Benefit" Role="Benefit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hom">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Benefit">
+              <PropertyRef Name="HomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Gas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="GC" Nullable="false" />
+          <Property Type="Int32" Name="GP" Nullable="false" />
+          <Property Type="Int32" Name="GD" Nullable="false" />
+          <Property Type="Int32" Name="Privelege" Nullable="true" />
+          <Property Type="Decimal" Name="Sum" Nullable="false" />
+          <Property Type="DateTime" Name="Data" Nullable="false" />
+          <NavigationProperty Name="Hom" Relationship="Model1.HomGas" FromRole="Gas" ToRole="Hom" />
+          <Property Type="Int32" Name="HomID" Nullable="false" />
+        </EntityType>
+        <Association Name="HomGas">
+          <End Type="Model1.Hom" Role="Hom" Multiplicity="1" />
+          <End Type="Model1.Gas" Role="Gas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hom">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Gas">
+              <PropertyRef Name="HomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Limits">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="E_L1" Nullable="false" />
+          <Property Type="Int32" Name="E_L2" Nullable="false" />
+          <Property Type="Int32" Name="E_L3" Nullable="false" />
+          <NavigationProperty Name="Hom" Relationship="Model1.HomLimits" FromRole="Limits" ToRole="Hom" />
+          <Property Type="Int32" Name="HomID" Nullable="false" />
+        </EntityType>
+        <Association Name="HomLimits">
+          <End Type="Model1.Hom" Role="Hom" Multiplicity="1" />
+          <End Type="Model1.Limits" Role="Limits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Hom">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Limits">
+              <PropertyRef Name="HomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="HomItems">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Hom)">
+        <MappingFragment StoreEntitySet="HomItems">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Apartament_naber" ColumnName="Apartament_naber" />
+          <ScalarProperty Name="Benefit" ColumnName="Benefit" />
+          <ScalarProperty Name="Gas" ColumnName="Gas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cold_WaterНабор">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Cold_Water)">
+        <MappingFragment StoreEntitySet="Cold_WaterНабор">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CW1" ColumnName="CW1" />
+          <ScalarProperty Name="CW0" ColumnName="CW0" />
+          <ScalarProperty Name="CWT" ColumnName="CWT" />
+          <ScalarProperty Name="CWP" ColumnName="CWP" />
+          <ScalarProperty Name="CWD" ColumnName="CWD" />
+          <ScalarProperty Name="Sum" ColumnName="Sum" />
+          <ScalarProperty Name="HomID" ColumnName="HomID" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hot_WaterНабор">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Hot_Water)">
+        <MappingFragment StoreEntitySet="Hot_WaterНабор">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HW1" ColumnName="HW1" />
+          <ScalarProperty Name="HW0" ColumnName="HW0" />
+          <ScalarProperty Name="HWT" ColumnName="HWT" />
+          <ScalarProperty Name="HWP" ColumnName="HWP" />
+          <ScalarProperty Name="HWD" ColumnName="HWD" />
+          <ScalarProperty Name="Sum" ColumnName="Sum" />
+          <ScalarProperty Name="HomID" ColumnName="HomID" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ElectricityНабор">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Electricity)">
+        <MappingFragment StoreEntitySet="ElectricityНабор">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EC" ColumnName="EC" />
+          <ScalarProperty Name="EP" ColumnName="EP" />
+          <ScalarProperty Name="ED" ColumnName="ED" />
+          <ScalarProperty Name="Privelege" ColumnName="Privelege" />
+          <ScalarProperty Name="toLim" ColumnName="toLim" />
+          <ScalarProperty Name="fromLim" ColumnName="fromLim" />
+          <ScalarProperty Name="overLim" ColumnName="overLim" />
+          <ScalarProperty Name="SumP" ColumnName="SumP" />
+          <ScalarProperty Name="SumT" ColumnName="SumT" />
+          <ScalarProperty Name="SumF" ColumnName="SumF" />
+          <ScalarProperty Name="Sum" ColumnName="Sum" />
+          <ScalarProperty Name="SumO" ColumnName="SumO" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="HomID" ColumnName="HomID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TarrifНабор">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Tarrif)">
+        <MappingFragment StoreEntitySet="TarrifНабор">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CW" ColumnName="CW" />
+          <ScalarProperty Name="HW" ColumnName="HW" />
+          <ScalarProperty Name="S" ColumnName="S" />
+          <ScalarProperty Name="E_T" ColumnName="E_T" />
+          <ScalarProperty Name="E_F" ColumnName="E_F" />
+          <ScalarProperty Name="E_O" ColumnName="E_O" />
+          <ScalarProperty Name="HomID" ColumnName="HomID" />
+          <ScalarProperty Name="Gas" ColumnName="Gas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SewageНабор">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Sewage)">
+        <MappingFragment StoreEntitySet="SewageНабор">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="S1" ColumnName="S1" />
+          <ScalarProperty Name="S0" ColumnName="S0" />
+          <ScalarProperty Name="ST" ColumnName="ST" />
+          <ScalarProperty Name="SP" ColumnName="SP" />
+          <ScalarProperty Name="SD" ColumnName="SD" />
+          <ScalarProperty Name="Sum" ColumnName="Sum" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="HomID" ColumnName="HomID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Benefit">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Benefit)">
+        <MappingFragment StoreEntitySet="Benefit">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Privilege" ColumnName="Privilege" />
+          <ScalarProperty Name="Persons" ColumnName="Persons" />
+          <ScalarProperty Name="E" ColumnName="E" />
+          <ScalarProperty Name="CW" ColumnName="CW" />
+          <ScalarProperty Name="HW" ColumnName="HW" />
+          <ScalarProperty Name="S" ColumnName="S" />
+          <ScalarProperty Name="HomID" ColumnName="HomID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GasНабор">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Gas)">
+        <MappingFragment StoreEntitySet="GasНабор">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GC" ColumnName="GC" />
+          <ScalarProperty Name="GP" ColumnName="GP" />
+          <ScalarProperty Name="GD" ColumnName="GD" />
+          <ScalarProperty Name="Privelege" ColumnName="Privelege" />
+          <ScalarProperty Name="Sum" ColumnName="Sum" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="HomID" ColumnName="HomID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LimitsНабор">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Limits)">
+        <MappingFragment StoreEntitySet="LimitsНабор">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="E_L1" ColumnName="E_L1" />
+          <ScalarProperty Name="E_L2" ColumnName="E_L2" />
+          <ScalarProperty Name="E_L3" ColumnName="E_L3" />
+          <ScalarProperty Name="HomID" ColumnName="HomID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

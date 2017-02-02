@@ -1,0 +1,75 @@
+﻿@model MvcDOM.Electricity
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Видалення</h2>
+
+<h3>Ви впевненні що бажаєте видалити ці записи?</h3>
+<fieldset>
+    <legend>Світло</legend>
+
+    <div class="display-label">
+      Поточні
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EC)
+    </div>
+
+    <div class="display-label">
+       Попередні 
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EP)
+    </div>
+
+    <div class="display-label">
+       Різниця 
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ED)
+    </div>
+
+    <div class="display-label">
+       До 150_250кВт 
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.L150_250)
+    </div>
+
+    <div class="display-label">
+      Понад 150_250кВт 
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.upL150_250)
+    </div>
+
+    <div class="display-label">
+       Сума до сплати 
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Sum)
+    </div>
+
+    <div class="display-label">
+       Квартира
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Hom.Apartament_naber)
+    </div>
+
+    <div class="display-label">
+       Дата
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Data)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

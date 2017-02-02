@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MvcDOM.Cold_Water>
+
+@{
+    ViewBag.Title = "ShowFilter";
+}
+
+<h2>ShowFilter</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CW1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CW0)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CWT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CWP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CWD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HomID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CW1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CW0)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CWT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CWP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CWD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HomID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

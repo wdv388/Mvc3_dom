@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c4ee260d0bf34e2f863eb47ee6f914c4" Name="Диаграмма1" >
+        <EntityTypeShape EntityType="Model1.Hom" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="Model1.Cold_Water" Width="1.5" PointX="2.875" PointY="2.75" />
+        <EntityTypeShape EntityType="Model1.Hot_Water" Width="1.5" PointX="4.875" PointY="2.75" />
+        <EntityTypeShape EntityType="Model1.Electricity" Width="1.5" PointX="6.5" PointY="2.75" />
+        <AssociationConnector Association="Model1.HomCold_Water" />
+        <AssociationConnector Association="Model1.HomHot_Water" />
+        <AssociationConnector Association="Model1.HomElectricity" />
+        <EntityTypeShape EntityType="Model1.Tarrif" Width="1.5" PointX="0.5" PointY="3.5" />
+        <AssociationConnector Association="Model1.HomTarrif" />
+        <EntityTypeShape EntityType="Model1.Sewage" Width="1.5" PointX="8.25" PointY="2.75" />
+        <AssociationConnector Association="Model1.HomSewage" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,36 @@
+﻿@model MvcDOM.Hom
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Hom</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Apartament_naber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Apartament_naber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Benefit)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Benefit)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Gas)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Gas)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

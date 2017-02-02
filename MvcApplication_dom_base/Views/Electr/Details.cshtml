@@ -1,0 +1,60 @@
+﻿@model MvcApplication_dom_base.Models.Electric
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Electric</legend>
+
+    <div class="display-label">Current</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Current)
+    </div>
+
+    <div class="display-label">Previous</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Previous)
+    </div>
+
+    <div class="display-label">Difference</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Difference)
+    </div>
+
+    <div class="display-label">Difference_half</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Difference_half)
+    </div>
+
+    <div class="display-label">Difference_fullhalf</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Difference_fullhalf)
+    </div>
+
+    <div class="display-label">Price_half</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price_half)
+    </div>
+
+    <div class="display-label">Price</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+
+    <div class="display-label">TotaltoPay</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TotaltoPay)
+    </div>
+
+    <div class="display-label">date</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.date)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

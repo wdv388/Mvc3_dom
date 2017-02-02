@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MvcHOME.Hom>
+
+@{
+    ViewBag.Title = "Start";
+}
+
+<h2>Start</h2>
+
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Apartament_naber)
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+        @Html.DisplayFor(modelItem => item.Apartament_naber) Додати показники <span class="caret"></span>
+    </button>
+                 <ul class="dropdown-menu" role="menu">
+        <li>  @Html.ActionLink("+ холодна вода", "Create", "Cold", new {id=item.ID },null)  </li> 
+        <li> @Html.ActionLink("+ гаряча вода", "Create", "Hot", new {id=item.ID },null)   </li>
+        <li> @Html.ActionLink("+ електрика", "Create", "Electricity", new {id=item.ID },null) </li>
+        <li>  @Html.ActionLink("+ стоки гарячої води", "Create", "Sewage", new {id=item.ID },null)</li>
+
+      
+
+        
+    </ul>
+</div>
+          @*<div  class="btn btn-default"> 
+            @Html.ActionLink(Convert.ToString(item.Apartament_naber),"Index", "Records", new {id=item.ID },null)
+           </div>*@
+        </td>
+      
+        <td>
+            
+     
+        </td>
+    </tr>
+}
+
+</table>
+ @* @Html.DisplayFor(modelItem => item.Apartament_naber) *@ 
+@* <li class="divider"> </li>
+        <li>  </li>
+        <li>   </li>*@

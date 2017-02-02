@@ -1,0 +1,81 @@
+﻿@model IEnumerable<MvcHOME.Tarrif>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Тарифи</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<div class="row"> 
+    <div class="col-md-6">
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>
+            @Html.Label("Холодна вода")
+        </th>
+        <th>
+            @Html.Label("Гаряча вода")
+        </th>
+        <th>
+            @Html.Label("Каналізація")
+        </th>
+        <th>
+            @Html.Label("Світло до ліміту")
+        </th>
+        <th>
+            @Html.Label("Світло від ліміту")
+        </th>
+        <th>
+            @Html.Label("Світло понад ліміт")
+        </th>
+        <th>
+            @Html.Label("Квартира")
+        </th>
+        <th></th>
+    </tr>
+  
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CW)
+            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HW)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.S)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.E_T)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.E_F)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.E_O)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hom.Apartament_naber)
+        </td>
+        <td>
+             <div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+         Внести зміни <span class="caret"></span>
+    </button>
+             <ul class="dropdown-menu" role="menu">
+                 <li>@Html.ActionLink("Edit", "Edit", new { id=item.ID }) </li>
+                 <li>@Html.ActionLink("Details", "Details", new { id=item.ID })  </li>
+                 <li> @Html.ActionLink("Delete", "Delete", new { id=item.ID }) </li>
+           </ul>
+         </div>  
+        </td>
+    </tr>
+}
+
+</table>
+  </div>
+  </div>

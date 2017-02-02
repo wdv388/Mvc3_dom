@@ -1,0 +1,61 @@
+﻿@model MvcApplication_dom_base.Models.Coldwater
+
+<tr @if (Model != null) {
+    @:data-pkey="@Model.ID"
+}>
+    <td>
+        @Html.EditorFor(model => model.Current)
+        @Html.ValidationMessageFor(model => model.Current)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.Current1)
+        @Html.ValidationMessageFor(model => model.Current1)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.CurrentTotal)
+        @Html.ValidationMessageFor(model => model.CurrentTotal)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.Previous)
+        @Html.ValidationMessageFor(model => model.Previous)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.Difference)
+        @Html.ValidationMessageFor(model => model.Difference)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.Price)
+        @Html.ValidationMessageFor(model => model.Price)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.water_half)
+        @Html.ValidationMessageFor(model => model.water_half)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.Price_half)
+        @Html.ValidationMessageFor(model => model.Price_half)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.totaltopay_half)
+        @Html.ValidationMessageFor(model => model.totaltopay_half)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.totaltoplayfull_half)
+        @Html.ValidationMessageFor(model => model.totaltoplayfull_half)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.TotaltoPay)
+        @Html.ValidationMessageFor(model => model.TotaltoPay)
+    </td>
+    <td>
+        @Html.EditorFor(model => model.date)
+        @Html.ValidationMessageFor(model => model.date)
+    </td>
+    <td>
+@if (ViewContext.RouteData.Values["Action"].ToString() == "Edit") {
+        <button class="editRow">Save</button><button class="cancelEditRow">Cancel</button>
+} else {
+        <button class="createRow">Create</button><button class="cancelCreateRow">Cancel</button>
+}
+    </td>
+</tr>

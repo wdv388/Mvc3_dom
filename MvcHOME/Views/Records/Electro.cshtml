@@ -1,0 +1,156 @@
+﻿@model IEnumerable<MvcHOME.Electricity>
+@*<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+@*<strong>Світло </strong>*@
+@{ Layout = null;
+    }
+<ul class="pagination">  <li>
+@Html.ActionLink("+Додати покакзники по світлу","Create","Electricity",new{id=ViewBag.Nuber },null)
+      </li> <li>Світло</li></ul>
+
+
+<!-- Button trigger modal -->
+@*<button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myModal1">+Додати показники по світлу</button>*@
+<div class="row"> 
+    <div class="col-md-6"> 
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayName("Поточні показники")
+        </th>
+        <th>
+            @Html.DisplayName("Попередні показники")
+        </th>
+        <th>
+            @Html.DisplayName("Різниця")
+        </th>
+        <th>
+            @Html.DisplayName("Пільгові")
+        </th>
+        <th>
+            @Html.DisplayName("до ліміту")
+        </th>
+        <th>
+            @Html.DisplayName("від ліміту")
+        </th>
+        <th>
+            @Html.DisplayName("понад ліміт")
+        </th>
+        <th>
+            @Html.DisplayName("сума пільги")
+        </th>
+        <th>
+            @Html.DisplayName("сума до ліміту")
+        </th>
+        <th>
+            @Html.DisplayName("сума від ліміту")
+        </th>
+        <th>
+            @Html.DisplayName("сума Загалом")
+        </th>
+        <th>
+            @Html.DisplayName("сума понад")
+        </th>
+        <th>
+            @Html.DisplayName("Дата")
+        </th>
+        <th>
+            @Html.DisplayName("Квартира")
+        </th>
+      
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ED)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Privelege)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.toLim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fromLim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.overLim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SumP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SumT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SumF)
+        </td>
+        <td>
+          <strong >  @Html.DisplayFor(modelItem => item.Sum)</strong>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SumO)
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hom.Apartament_naber)
+        </td>
+        
+    </tr>
+}
+
+</table>
+
+        </div>
+    </div>
+<!-- Modal -->
+@*<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Закрити</span></button>
+        <h4 class="modal-title" id="myModalLabel1">Додавання показників лічильника світла</h4>
+      </div>
+      <div class="modal-body">
+        
+@Html.Action( "Create", "Electricity", new { id = ViewBag.Nuber })
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>*@
+        @*<button type="button" class="btn btn-primary">Зберегти зміни</button>*@
+ @*     </div>
+    </div>
+  </div>
+</div>*@
+<div>
+    <input type="hidden" value="@ViewBag.timeerE" id="tmdE" />
+
+</div>
+<script type="text/javascript">
+    $(document).ready(function () { 
+    var timenowchekE = $('#tmdE').val();
+    if (timenowchekE) {
+        $('#espn').addClass('label label-danger');
+        $('#espn').append('Увага! Поточні показники електрики за минулий місяць');
+        var i = 1;
+        while (i <= 300) {
+            $('#espn').fadeOut(1000, function () {
+                $('#espn').addClass('label label-danger');
+            });
+            $('#espn').fadeIn(1000, function () { });
+            i++;
+        }
+       // alert("Увага! Поточні показники електрики за минулий місяць");
+    }
+        
+   });
+</script>

@@ -1,0 +1,71 @@
+﻿@model MvcDOM.Electricity
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Electricity</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EC)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EC)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EP)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EP)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ED)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ED)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.L150_250)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.L150_250)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.upL150_250)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.upL150_250)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Sum)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Sum)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Hom.ID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Hom.ID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Data)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Data)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

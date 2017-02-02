@@ -1,0 +1,152 @@
+﻿@{
+    ViewBag.Title = "ShowTrend";
+}
+@model IEnumerable<MvcHOME.Hom>
+
+
+    
+
+
+            <h2>Оберіть квартиру</h2>
+<div class="row"> 
+@foreach (var item in Model)
+{
+       
+       <div id="past" class="col-md-1 col-md-offset-1">
+           <input type="checkbox" name="@item.ID" id="check"/>@item.Apartament_naber
+           
+        </div> 
+  
+ }  
+        @Html.DisplayName("Years")
+        @Html.DropDownList("Data",ViewBag.Time as SelectList ,String.Empty)
+
+@*   <p>Date: <input type="text" id="datepicker" class="col-md-1"></p>   *@
+</div> 
+      
+  <div id="part1" class="btn-group" role="group">  
+ <div class="btn-group" role="group">     
+<div id="cldf" > 
+  @using (Ajax.BeginForm("IndexSort","Cold" ,new AjaxOptions {
+      UpdateTargetId="upd",
+      LoadingElementId="loading", 
+      LoadingElementDuration=1000}))
+  { 
+  <input type="hidden" name="id" value="true" />
+  <input type="hidden" name="Data" value="true" />
+  }
+</div>
+</div>
+<div class="btn-group" role="group">   
+<div id="htf" >
+ @using (Ajax.BeginForm("IndexSort", "Hot", new AjaxOptions
+ {
+     UpdateTargetId = "upd",
+     LoadingElementId = "loading",
+     LoadingElementDuration = 1000
+ }))
+  { 
+  <input type="hidden" name="id" value="true" />
+<input type="hidden" name="Data" value="true" />
+  }
+</div>
+</div>
+<div class="btn-group" role="group">   
+<div id="swgf" >
+ @using (Ajax.BeginForm("IndexSort", "Sewage", new AjaxOptions
+ {
+     UpdateTargetId = "upd",
+     LoadingElementId = "loading",
+     LoadingElementDuration = 1000
+ }))
+  { 
+  <input type="hidden" name="id" value="true" />
+<input type="hidden" name="Data" value="true" />
+  }
+</div>
+</div>
+<div class="btn-group" role="group">   
+<div id="elf" >
+ @using (Ajax.BeginForm("IndexSort", "Electricity", new AjaxOptions
+ {
+     UpdateTargetId = "upd",
+     LoadingElementId = "loading",
+     LoadingElementDuration = 1000
+ }))
+  { 
+  <input type="hidden" name="id" value="true" />
+<input type="hidden" name="Data" value="true" />
+  }
+</div>
+</div>
+<div  class="btn-group" role="group" id="f4">
+    <button  id="reload" class="btn btn-default " disabled="disabled">Reload </button>
+</div>   
+     
+
+ 
+</div>
+<div id="upd" >
+  
+</div>
+
+
+<img id="loading" src="@Url.Content("~/Content/Image/ajax.gif")" style="display:none" />
+@*<script type="text/javascript">
+    jQuery(document).ready(function () {
+       
+       
+    $(function () {
+
+        $('#past input').bind('click', function (e) {
+            var vl = $(this).attr('name');
+            console.log(vl);
+           
+           
+            
+
+            $('#cldf input:first').attr('value', vl);
+
+            $('#form0 ').append(function (i) { return '<button id=btnc type="submit" class="btn btn-default  ">Cold water </button>' });
+            $('#htf input:first').attr('value', vl);
+            $('#form1 ').append(function (i) { return '<button type="submit" class="btn btn-default  ">Hot water </button>' });
+            $('#swgf input:first').attr('value', vl);
+            $('#form2 ').append(function (i) { return '<button type="submit" class="btn btn-default ">Sawage</button>' });
+            $('#elf input:first').attr('value', vl);
+            $('#form3 ').append(function (i) { return '<button type="submit" class="btn btn-default " > Electric</button>' });
+            $('#past input').attr('disabled', 'disabled');
+
+            $('#reload').removeAttr('disabled');
+
+         //  $('input').unbind();
+        });
+
+
+    });
+   
+        
+});
+
+</script>*@
+@*<script type="text/javascript">
+    $(document).ready(function () {
+        $('#reload').click(function () {
+             $("body").load("/Home/ShowTrend/");
+            console.log("I click")
+        });
+        //$('.btn.btn-default ').click(function () {
+        //    console.log('Click button')numberOfMonths: 12, showButtonPanel: true,
+        //});
+        //$(function () {
+        //    $("#datepicker").datepicker({ dateFormat: "yy", yearRange: "2015:2018", changeYear: true });
+        //});
+       
+    });
+</script>*@
+@*<link href="~/Content/jquery-ui-1.10.4/themes/base/jquery.ui.theme.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui-1.10.4/themes/base/jquery-ui.css" rel="stylesheet" />
+<script src="~/Content/jquery-ui-1.10.4/ui/jquery-ui.js"></script>*@
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.js")
+<script src="~/Scripts/Add_button_value.js"></script>
+<script src="~/Scripts/Reload_button.js"></script>
+<script src="~/Scripts/Add_value_to_theforms.js"></script>

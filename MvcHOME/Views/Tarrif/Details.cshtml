@@ -1,0 +1,77 @@
+﻿@model MvcHOME.Tarrif
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h1>Details</h1>
+
+<fieldset>
+    <legend>Tarrif</legend>
+  <div class="form-horizontal">   
+        <div class="form-group"> 
+    <div class = "col-md-1 control-label">
+         @Html.DisplayName("Холодна вода")
+    </div>
+    <div class = "col-md-1 control-label">
+        @Html.DisplayFor(model => model.CW)
+    </div>
+
+</div>
+        <div class="form-group">
+    <div class = "col-md-1 control-label">
+         @Html.DisplayName("Гаряча вода")
+    </div>
+    <div class = "col-md-1 control-label">
+        @Html.DisplayFor(model => model.HW)
+    </div>
+</div>
+        <div class="form-group">
+    <div class = "col-md-1 control-label">
+         @Html.DisplayName("Стоки гарячої води")
+    </div>
+    <div class = "col-md-1 control-label">
+        @Html.DisplayFor(model => model.S)
+    </div>
+</div>
+        <div class="form-group">
+    <div class = "col-md-1 control-label">
+         @Html.DisplayName("Світло до ліміту")
+    </div>
+    <div class = "col-md-1 control-label">
+        @Html.DisplayFor(model => model.E_T)
+    </div>
+</div>
+        <div class="form-group">
+    <div class = "col-md-1 control-label">
+         @Html.DisplayName("Світло від ліміту")
+    </div>
+    <div class = "col-md-1 control-label">
+        @Html.DisplayFor(model => model.E_F)
+    </div>
+</div>
+       
+ <div class="form-group">
+       <div class = "col-md-1 control-label">
+         @Html.DisplayName("Світло понад ліміт")
+       </div>
+       <div class = "col-md-1 control-label">
+        @Html.DisplayFor(model => model.E_O)
+      </div>
+</div>
+<div class="form-group">
+        <div class = "col-md-1 control-label">
+         @Html.DisplayName("Квартира")
+       </div>
+       <div class = "col-md-1 control-label">
+        @Html.DisplayFor(model => model.Hom.Apartament_naber)
+       </div>
+ </div>
+</div>
+</fieldset>
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

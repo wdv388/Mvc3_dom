@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MvcDOM.Electricity>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Світло</h2>
+
+<p>
+   @* @Html.ActionLink("Create New", "Create")*@
+</p>
+<table>
+    <tr>
+        <th>
+           Поточні
+        </th>
+        <th>
+           Попередні
+        </th>
+        <th>
+          Різниця 
+        </th>
+        <th>
+          До 150_250кВт
+        </th>
+        <th>
+          Понад 150_250кВт
+        </th>
+        <th>
+          Сума до сплати 
+        </th>
+        <th>
+           Квартира 
+        </th>
+        <th>
+          Дата 
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ED)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.L150_250)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.upL150_250)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hom.Apartament_naber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+           @* @Html.ActionLink("Details", "Details", new { id=item.ID }) |*@
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

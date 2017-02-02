@@ -1,0 +1,92 @@
+﻿@model MvcDOM.Cold_Water
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Редагування</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Холодна вода</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CW1,"Лічильник1")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CW1)
+            @Html.ValidationMessageFor(model => model.CW1)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CW0,"Лічильник2")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CW0)
+            @Html.ValidationMessageFor(model => model.CW0)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CWT,"Разом за лічильником 1 та 2")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CWT)
+            @Html.ValidationMessageFor(model => model.CWT)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CWP,"Попередні показники")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CWP)
+            @Html.ValidationMessageFor(model => model.CWP)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CWD,"Різниця")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CWD)
+            @Html.ValidationMessageFor(model => model.CWD)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Sum,"Сума до сплати")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Sum)
+            @Html.ValidationMessageFor(model => model.Sum)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HomID, "Квартира")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("HomID", String.Empty)
+            @Html.ValidationMessageFor(model => model.HomID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Data,"Дата")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Data)
+            @Html.ValidationMessageFor(model => model.Data)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+

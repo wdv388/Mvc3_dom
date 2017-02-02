@@ -1,0 +1,66 @@
+﻿@model MvcHOME.Hom
+
+@{
+    ViewBag.Title = "Створити";
+}
+
+
+
+@using (Html.BeginForm("Create", "Home", FormMethod.Post, new { @class = "form-inline", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+   
+        <legend>Квартира</legend>
+
+       <div class="form-group">
+        <div class="col-md-10">
+           @Html.TextBoxFor(model => model.Apartament_naber,new { @class = "form-control", @placeholder = "Номер квартири" })  
+             @Html.ValidationMessageFor(model => model.Apartament_naber)
+            
+        </div>
+    </div>
+      
+         <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <div class="checkbox">
+              @Html.EditorFor(model => model.Benefit)
+              @Html.ValidationMessageFor(model => model.Benefit)  
+                 @Html.Label("Пільга")
+                
+            </div>
+        </div>
+    </div>
+
+       <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <div class="checkbox">
+              @Html.EditorFor(model => model.Gas)
+              @Html.ValidationMessageFor(model => model.Gas)
+                 @Html.Label("Газ")
+               
+            </div>
+        </div>
+    </div>
+
+        
+       <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Додати" class="btn btn-default" />
+        </div>
+    </div>
+
+    
+   
+}
+<ul class="pagination">
+  <li>  @Html.ActionLink("Back to List", "Index")</li>
+ 
+</ul>
+
+  
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<MvcDOM.Hot_Water>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<strong>Гаряча вода</strong>
+<p> 
+@Html.ActionLink("+Дотаки показники лічильника гарячої води","Create","Hot",new{id=ViewBag.Nuber},null)
+</p>
+<div class="row"> 
+    <div class="col-md-6"> 
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>
+           Лічильник1
+        </th>
+        <th>
+           Лічильник2 
+        </th>
+        <th>
+           Разом за лічильником 1 та 2 
+        </th>
+        <th>
+           Попередні показники 
+        </th>
+        <th>
+          Різниця 
+        </th>
+        <th>
+          Сума до сплати 
+        </th>
+        <th>
+          Квартира
+        </th>
+        <th>
+          Дата
+        </th>
+      @*  <th></th>*@
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HW1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HW0)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HWT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HWP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HWD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HomID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+       
+    </tr>
+}
+
+</table>
+</div>
+    </div>

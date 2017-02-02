@@ -1,0 +1,86 @@
+﻿@model MvcHOME.Benefit
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Benefit</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Privilege)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Privilege)
+            @Html.ValidationMessageFor(model => model.Privilege)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Persons)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Persons)
+            @Html.ValidationMessageFor(model => model.Persons)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.E)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.E)
+            @Html.ValidationMessageFor(model => model.E)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CW)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CW)
+            @Html.ValidationMessageFor(model => model.CW)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HW)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HW)
+            @Html.ValidationMessageFor(model => model.HW)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.S)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.S)
+            @Html.ValidationMessageFor(model => model.S)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HomID, "Hom")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("HomID", String.Empty)
+            @Html.ValidationMessageFor(model => model.HomID)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

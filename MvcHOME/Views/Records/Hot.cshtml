@@ -1,0 +1,118 @@
+﻿@model IEnumerable<MvcHOME.Hot_Water>
+@*<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+@*<strong>Гаряча вода</strong>*@
+@{Layout = null;
+    }
+<ul class="pagination"><li>@Html.ActionLink("+Додати  показники по гарячий воді","Create","Hot",new{id=ViewBag.Nuber},null) </li><li>Гаряча вода</li>    </ul>
+
+<!-- Button trigger modal -->
+@*<button type="button" class="btn btn-primary " data-toggle="modal" data-target="#myModal2">+Дотаки показники лічильника гарячої води </button>*@
+<div class="row"> 
+    <div class="col-md-6"> 
+<table class="table table-striped table-bordered">
+    <tr>
+        <th>
+           Лічильник1
+        </th>
+        <th>
+           Лічильник2 
+        </th>
+        <th>
+           Разом за лічильником 1 та 2 
+        </th>
+        <th>
+           Попередні показники 
+        </th>
+        <th>
+          Різниця 
+        </th>
+        <th>
+          Сума до сплати 
+        </th>
+        <th>
+          Квартира
+        </th>
+        <th>
+          Дата
+        </th>
+      @*  <th></th>*@
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HW1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HW0)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HWT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HWP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HWD)
+        </td>
+        <td>
+         <strong >   @Html.DisplayFor(modelItem => item.Sum) </strong>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hom.Apartament_naber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+       
+    </tr>
+}
+
+</table>
+</div>
+    </div>
+<!-- Modal -->
+@*<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Закрити</span></button>
+        <h4 class="modal-title" id="myModalLabel2">Додавання показників лічильника гарячої води</h4>
+      </div>
+      <div class="modal-body">
+        
+@Html.Action( "Create", "Hot", new { id = ViewBag.Nuber })
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>*@
+       @* <button type="button" class="btn btn-primary">Зберегти зміни</button>*@
+  @*    </div>
+    </div>
+  </div>
+</div>*@
+<div>
+    <input type="hidden" value="@ViewBag.timeerH" id="tmdH" />
+
+</div>
+<script type="text/javascript">
+    $(document).ready(function () { 
+    var timenowchekH = $('#tmdH').val();
+    if (timenowchekH) {
+      //  $('.label.label-danger').addClass('label label-danger');
+        $('span.label.label-danger').append('Увага! Поточні показники гарячої води за минулий місяць');
+        //  alert("Увага! Поточні показники гарячої води за минулий місяць");
+        var i = 1;
+        while (i <= 300) {
+            $('#hwsp').fadeOut(1000, function () {
+                $('#hwsp').addClass('label label-danger');
+            });
+            $('#hwsp').fadeIn(1000, function () { });
+            i++;
+        }
+    }
+        
+    console.log(timenowchekH);
+});
+</script>

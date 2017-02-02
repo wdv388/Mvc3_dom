@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Mvc3_dom.Models.Electricity>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Электричество</h2>
+
+<p>
+    @Html.ActionLink("Добавить показания", "Create")
+</p>
+<table class="features-table01">
+    <tr>
+        <th>
+            Текущие
+        </th>
+        <th>
+            Предыдущие показатели
+        </th>
+        <th>
+            Разница
+        </th>
+        <th>
+            Цена
+        </th>
+        <th>
+            Итого к оплате
+        </th>
+        <th>
+            Дата
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Current)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Previous)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Difference)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotaltoPay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

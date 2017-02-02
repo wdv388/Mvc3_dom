@@ -1,0 +1,103 @@
+﻿@model IEnumerable<MvcApplication_dom_base.Models.Hotwater>
+
+@{
+    ViewBag.Title = "Гаряча вода";
+}
+
+<h2>Гаряча вода</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="features-table01">
+    <tr>
+        <th>
+            Лічильник
+        </th>
+        <th>
+            Лічильник1
+        </th>
+        <th>
+            Загальні
+        </th>
+        <th>
+            Попередні
+        </th>
+        <th>
+            Спожито
+        </th>
+        <th>
+            Ціна
+        </th>
+        <th>
+            Спожито\2чол
+        </th>
+        <th>
+            Пільгова ціна
+        </th>
+        <th>
+            До сплати за пільгою
+        </th>
+        <th>
+            Повна вартість
+        </th>
+        <th>
+            До сплати
+        </th>
+        <th>
+            Дата
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Current)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Current1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Previous)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Difference)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.water_half)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price_half)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.totaltopay_half)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.totaltoplayfull_half)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotaltoPay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
+<p>
+    
+       @Html.PagingNavigator((int)Html.ViewData["PageNum"],(int)Html.ViewData["ItemsCount"],(int)Html.ViewData["PageSize"])
+</p>

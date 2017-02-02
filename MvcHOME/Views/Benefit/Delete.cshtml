@@ -1,0 +1,68 @@
+﻿@model MvcHOME.Benefit
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Benefit</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Privilege)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Privilege)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Persons)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Persons)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.E)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.E)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CW)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CW)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HW)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HW)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.S)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.S)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Hom.ID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Hom.ID)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

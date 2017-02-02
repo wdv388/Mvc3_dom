@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+
+
+<script type="text/javascript">
+    function elec () {
+
+window.location = "/Electr/Index";
+    };
+    function hot() {
+        window.location = "/Hot/Index";
+    };
+    function cold() {
+        window.location = "/Cold/Index";
+    };
+</script>
+<div id="grupbtn">
+<button value="" onclick="elec()" class="hbtn" id="electr">
+ ELECTRECITY 
+</button>
+<button onclick="hot()" class="hbtn" id="hot" >
+    HOT Water
+</button>
+<button onclick="cold()" class="hbtn" id="cold">
+    Cold Water
+</button>
+    </div>

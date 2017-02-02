@@ -1,0 +1,185 @@
+﻿@model MvcHOME.Electricity
+
+@{
+    ViewBag.Title ="Create";
+    if (ViewBag.benefit)
+    {
+        <script src="~/Scripts/Electr_var_2_2.js"></script>
+     //  <script src="~/Scripts/Electr.js"></script> 
+    }else{
+    <script src="~/Scripts/ElectroTRUE.js"></script>
+      }
+}
+
+<h2>Додати показники для квартири № <span class="label label-success">@ViewBag.nuber</span></h2><h6> тарифи:1(<span class="badge"> @ViewBag.TEL1</span>),тариф2(<span class="badge">@ViewBag.TEL2</span>),тариф3(<span class="badge">@ViewBag.TEL3</span>),пільги(<span class="badge"> @ViewBag.benefit </span>)</h6>
+
+@using (Html.BeginForm("Create", "Electricity", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Електрика</legend>
+
+        <div class="form-group">
+           @Html.Label("Поточні", new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.EC, new { @class = "form-control",@placeholder="Поточні показники лічильника" })
+            @Html.ValidationMessageFor(model => model.EC)
+        </div>
+</div>
+        <div class="form-group">
+            @Html.Label("Попередні", new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.EP, new { @class = "form-control",@data="tooltip", @title=@ViewBag.EP,@placeholder=@ViewBag.EP  })
+            @Html.ValidationMessageFor(model => model.EP)
+        </div>
+</div>
+        <div class="form-group">
+            @Html.Label("Різниця", new { @class = "col-md-2 control-label" })
+       
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.ED, new { @class = "form-control",@placeholder="Різниця" })
+            @Html.ValidationMessageFor(model => model.ED)
+        </div>
+ </div>
+        <div class="form-group">
+            @Html.Label("Пільга", new { @class = "col-md-2 control-label" })
+       
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.Privelege, new { @class = "form-control",@placeholder="Пільгове споживання("+@ViewBag.lim3+"кВт)" })
+            @Html.ValidationMessageFor(model => model.Privelege)
+        </div>
+ </div>
+        <div class="form-group">
+            @Html.Label("Спожито до ліміта", new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.toLim, new { @class = "form-control",@placeholder="Спожито до ліміта" })
+            @Html.ValidationMessageFor(model => model.toLim)
+        </div>
+</div>
+        <div class="form-group">
+            @Html.Label("Спожито від ліміта", new { @class = "col-md-2 control-label" })
+       
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.fromLim, new { @class = "form-control",@placeholder="Спожито від ліміта" })
+            @Html.ValidationMessageFor(model => model.fromLim)
+        </div>
+ </div>
+        <div class="form-group">
+            @Html.Label("Спожито понад ліміт", new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.overLim, new { @class = "form-control",@placeholder="Спожито понад ліміт" })
+            @Html.ValidationMessageFor(model => model.overLim)
+        </div>
+</div>
+        <div class="form-group">
+            @Html.Label("Сума пільгова", new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.SumP, new { @class = "form-control",@placeholder="Сума пільги" })
+            @Html.ValidationMessageFor(model => model.SumP)
+        </div>
+</div>
+        <div class="form-group">
+            @Html.Label("Сума до", new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.SumT, new { @class = "form-control",@placeholder="Сума до" })
+            @Html.ValidationMessageFor(model => model.SumT)
+        </div>
+</div>
+        <div class="form-group">
+            @Html.Label("Сума від", new { @class = "col-md-2 control-label" })
+       
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.SumF, new { @class = "form-control",@placeholder="Сума від" })
+            @Html.ValidationMessageFor(model => model.SumF)
+        </div>
+ </div>
+       <div class="form-group">
+            @Html.Label("Сума понад", new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.SumO, new { @class = "form-control",@placeholder="Сума прнад" })
+            @Html.ValidationMessageFor(model => model.SumO)
+        </div>
+</div>
+          <div class="form-group">
+            @Html.Label("Сума", new { @class = "col-md-2 control-label" })
+      
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.Sum, new { @class = "form-control",@placeholder="Сума" })
+            @Html.ValidationMessageFor(model => model.Sum)
+        </div>
+  </div>
+        <div class="form-group">
+            @Html.Label("Дата", new { @class = "col-md-2 control-label" })
+       
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.Data, new { @class = "form-control",@placeholder="Рік_місяць_день" })
+            @Html.ValidationMessageFor(model => model.Data)
+        </div>
+ </div>
+        @*<div class="form-group">
+            @Html.Label("Квартира", new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-4">
+            @Html.DropDownList("HomID",ViewBag.HomeID as SelectList)
+            @Html.ValidationMessageFor(model => model.HomID)
+        </div>
+</div>*@
+
+       
+        <div class="form-group">
+        <div class="col-md-6 col-md-offset-5" >
+            <input type="submit" value="Додати" class="btn btn-default" />
+        </div>
+    </div>
+ 
+ <input type="text"  name="HomID" value="@ViewBag.ID" hidden="hidden" />
+    </fieldset>
+    
+    
+}
+<ul class="pagination">
+
+   <li>  @Html.ActionLink("Back to List", "Index")</li>
+
+    </ul>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<div>
+@Html.Hidden("benefit", @ViewBag.benefit as string)
+@Html.Hidden("lim1", @ViewBag.lim1 as string)
+@Html.Hidden("lim2",@ViewBag.lim2 as string)
+@Html.Hidden("lim3",@ViewBag.lim3 as string)
+@Html.Hidden("TEL1",@ViewBag.TEL1 as string)
+@Html.Hidden("TEL2",@ViewBag.TEL2 as string)
+@Html.Hidden("TEL3",@ViewBag.TEL3 as string)
+@Html.Hidden("benefitPerson",@ViewBag.benefitPerson as string)
+
+
+
+
+
+</div>
+
+<script>
+  $(function() {
+      $("#Data").datepicker({
+          dateFormat: "yy-mm-dd"
+      });
+  });
+  </script>
+@*      <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>*@
+@*       <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">*@
+<link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+<script src="~/Content/jquery-ui-1.10.4/ui/jquery-ui.js"></script>
+<script src="~/Scripts/Electr_var_2_2.js"></script>

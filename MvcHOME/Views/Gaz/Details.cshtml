@@ -1,0 +1,64 @@
+﻿@model MvcHOME.Gas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Gas</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GC)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GC)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GP)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GP)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GD)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GD)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Privelege)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Privelege)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Sum)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Sum)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Data)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Data)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Hom.ID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Hom.ID)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

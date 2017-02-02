@@ -1,0 +1,86 @@
+﻿@model MvcHOME.Tarrif
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Внести зміни до тарифу</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Діючи тарифи</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CW,"Холодна вода")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CW)
+            @Html.ValidationMessageFor(model => model.CW)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HW,"Гаряча вода")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HW)
+            @Html.ValidationMessageFor(model => model.HW)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.S,"Каналізація та сток гарячої води")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.S)
+            @Html.ValidationMessageFor(model => model.S)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.E_T,"Світло до ліміту")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.E_T)
+            @Html.ValidationMessageFor(model => model.E_T)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.E_F,"Світло від ліміту")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.E_F)
+            @Html.ValidationMessageFor(model => model.E_F)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.E_O,"Світло понад ліміт")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.E_O)
+            @Html.ValidationMessageFor(model => model.E_O)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HomID, "Hom")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("HomID", String.Empty)
+            @Html.ValidationMessageFor(model => model.HomID)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

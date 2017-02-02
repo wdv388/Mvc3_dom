@@ -1,0 +1,57 @@
+﻿@model MvcDOM.Tarrif
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Детально</h2>
+
+<fieldset>
+    <legend>Тарифи</legend>
+
+    <div class="display-label">
+     Квартира    
+    </div>
+    <div class="display-field">
+    @Html.DisplayFor(model => model.Hom.Apartament_naber)    
+    </div>
+
+    <div class="display-label">
+      Холодна вода   
+    </div>
+    <div class="display-field">
+       @Html.DisplayFor(model => model.CW)  
+    </div>
+
+    <div class="display-label">
+       Гаряча вода  
+    </div>
+    <div class="display-field">
+      @Html.DisplayFor(model => model.HW) 
+    </div>
+
+    <div class="display-label">
+      Стоки гарячої води  
+    </div>
+    <div class="display-field">
+       @Html.DisplayFor(model => model.S) 
+    </div>
+
+    <div class="display-label">
+     Світло 
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.E)
+    </div>
+
+    <div class="display-label">
+      Понад 150_250кВт 
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.upEL150_250)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

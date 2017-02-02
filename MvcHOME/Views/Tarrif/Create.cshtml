@@ -1,0 +1,89 @@
+﻿@model MvcHOME.Tarrif
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Створирти</h2>
+
+@using (Html.BeginForm("Create", "Tarrif", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Тарифи на енерго носії та воду</legend>
+
+        <div class="form-group">
+            @Html.Label("Холодна вода", new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.CW, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CW)
+        </div>
+</div>
+        <div class="form-group">
+            @Html.Label("Гаряча вода", new { @class = "col-md-2 control-label" })
+       
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.HW, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.HW)
+        </div>
+ </div>
+        <div class="form-group">
+            @Html.Label("Каналізація", new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.S, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.S)
+        </div>
+</div>
+        <div class="form-group">
+            @Html.Label("Світло до", new { @class = "col-md-2 control-label" })
+       
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.E_T, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.E_T)
+        </div>
+ </div>
+        <div class="form-group">
+            @Html.Label("Світло від", new { @class = "col-md-2 control-label" })
+       
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.E_F, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.E_F)
+        </div>
+ </div>
+        <div class="form-group">
+            @Html.Label("Свтло понад", new { @class = "col-md-2 control-label" })
+       
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.E_O, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.E_O)
+        </div>
+ </div>
+        <div class="form-group">
+            @Html.Label("Квартира",  new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-10">
+            @Html.DropDownList("HomID", String.Empty)
+            @Html.ValidationMessageFor(model => model.HomID)
+        </div>
+</div>
+         <div class="form-group">
+        <div class="col-md-1">
+            <input type="submit" value="Додати" class="btn btn-default" />
+        </div>
+    </div>
+    </fieldset>
+}
+
+<ul class="pagination">
+
+   <li>  @Html.ActionLink("Back to List", "Index")</li>
+
+    </ul>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

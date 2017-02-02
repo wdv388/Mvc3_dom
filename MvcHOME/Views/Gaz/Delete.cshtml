@@ -1,0 +1,68 @@
+﻿@model MvcHOME.Gas
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Gas</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GC)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GC)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GP)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GP)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GD)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GD)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Privelege)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Privelege)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Sum)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Sum)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Data)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Data)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Hom.ID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Hom.ID)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
