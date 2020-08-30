@@ -49,7 +49,7 @@ namespace MvcHOME.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.HomID = new SelectList(db.HomItems, "ID", "ID");
+            ViewBag.HomID = new SelectList(db.HomItems, "ID", "Apartament_naber");
             return View();
         }
 
@@ -67,7 +67,7 @@ namespace MvcHOME.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.HomID = new SelectList(db.HomItems, "ID", "ID", tarrif.HomID);
+            ViewBag.HomID = new SelectList(db.HomItems, "ID", "Apartament_naber", tarrif.HomID);
             return View(tarrif);
         }
 
@@ -81,7 +81,7 @@ namespace MvcHOME.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.HomID = new SelectList(db.HomItems, "ID", "ID", tarrif.HomID);
+            ViewBag.HomID = new SelectList(db.HomItems, "ID", "Apartament_naber", tarrif.HomID);
             return View(tarrif);
         }
 
@@ -98,7 +98,7 @@ namespace MvcHOME.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.HomID = new SelectList(db.HomItems, "ID", "ID", tarrif.HomID);
+            ViewBag.HomID = new SelectList(db.HomItems, "ID", "Apartament_naber", tarrif.HomID);
             return View(tarrif);
         }
 

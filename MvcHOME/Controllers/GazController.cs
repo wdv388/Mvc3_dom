@@ -39,7 +39,7 @@ namespace MvcHOME.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.HomID = new SelectList(db.HomItems, "ID", "ID");
+            ViewBag.HomID = new SelectList(db.HomItems, "ID", "Apartament_naber");
             return View();
         }
 

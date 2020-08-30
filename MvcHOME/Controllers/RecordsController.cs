@@ -53,23 +53,35 @@ namespace MvcHOME.Controllers
             ViewBag.apartament = apart;
             ViewBag.Nuber = id;
             #region sum
-            var scw = (from p in db.Cold_WaterНабор
-                       where p.HomID == id
-                       orderby p.ID ascending
-                       select p.Sum).ToList().Last();
-            var shw = (from p in db.Hot_WaterНабор
-                       where p.HomID == id
-                       orderby p.ID ascending
-                       select p.Sum).ToList().Last();
-            var ss = (from p in db.SewageНабор
-                      where p.HomID == id
-                      orderby p.ID ascending
-                      select p.Sum).ToList().Last();
-            var se = (from p in db.ElectricityНабор
-                      where p.HomID == id
-                      orderby p.ID
-                      select p.Sum).ToList().Last();
-            ViewBag.sumall = scw + shw+ss+se;
+            try
+            {
+
+                var scw = (from p in db.Cold_WaterНабор
+                           where p.HomID == id
+                           orderby p.ID ascending
+                           select p.Sum).ToList().Last();
+                var shw = (from p in db.Hot_WaterНабор
+                           where p.HomID == id
+                           orderby p.ID ascending
+                           select p.Sum).ToList().Last();
+                var ss = (from p in db.SewageНабор
+                          where p.HomID == id
+                          orderby p.ID ascending
+                          select p.Sum).ToList().Last();
+                var se = (from p in db.ElectricityНабор
+                          where p.HomID == id
+                          orderby p.ID
+                          select p.Sum).ToList().Last();
+                ViewBag.sumall = scw + shw + ss + se;
+            }
+            catch (Exception )
+            {
+                ViewBag.sumall = "Error!";
+                // return RedirectToAction("Index","Home");
+                // throw new Exception();
+            }
+           
+           
             #endregion
             return View(cw);
         }

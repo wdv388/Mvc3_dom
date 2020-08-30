@@ -62,13 +62,20 @@
             @Html.EditorFor(model => model.E_O)
             @Html.ValidationMessageFor(model => model.E_O)
         </div>
-
         <div class="editor-label">
-            @Html.LabelFor(model => model.HomID, "Hom")
+            @Html.LabelFor(model => model.Gas,"Газ/Опалення")
+        </div> 
+        <div class="editor-field">
+            @Html.EditorFor(model=>model.Gas)
+            @Html.ValidationMessageFor(model=>model.Gas)
+        </div>
+        
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HomID, "Квартира")
         </div>
         <div class="editor-field">
             @Html.DropDownList("HomID", String.Empty)
-            @Html.ValidationMessageFor(model => model.HomID)
+            @Html.ValidationMessageFor(model => model.Hom.Apartament_naber)
         </div>
 
         <p>

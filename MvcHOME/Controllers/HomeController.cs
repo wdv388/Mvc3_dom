@@ -36,16 +36,16 @@ namespace MvcHOME.Controllers
 
         public ActionResult Index()
         {
-            try
-            {
+           try
+           {
               return View(db.HomItems.ToList());
-            }
-            catch (Exception )
-            {
-                return RedirectToAction("IndexAj");
-                // return HttpNotFound(e.Message);
-              //  throw;
-            }
+           }
+          catch (Exception )
+          {
+             return RedirectToAction("IndexAj");
+              // return HttpNotFound(e.Message);
+            //    //throw;
+          }
             
         }
 

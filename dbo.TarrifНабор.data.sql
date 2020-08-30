@@ -1,0 +1,5 @@
+﻿SET IDENTITY_INSERT [dbo].[TarrifНабор] ON
+INSERT INTO [dbo].[TarrifНабор] ([ID], [CW], [HW], [S], [E_T], [E_F], [E_O], [HomID], [Gas]) VALUES (1, CAST(20.380000 AS Decimal(18, 6)), CAST(97.890000 AS Decimal(18, 6)), CAST(9.560000 AS Decimal(18, 6)), CAST(0.900000 AS Decimal(18, 6)), CAST(1.680000 AS Decimal(18, 6)), CAST(0.000000 AS Decimal(18, 6)), 1, CAST(8.580000 AS Decimal(18, 6)))
+INSERT INTO [dbo].[TarrifНабор] ([ID], [CW], [HW], [S], [E_T], [E_F], [E_O], [HomID], [Gas]) VALUES (2, CAST(20.380000 AS Decimal(18, 6)), CAST(97.890000 AS Decimal(18, 6)), CAST(9.560000 AS Decimal(18, 6)), CAST(0.900000 AS Decimal(18, 6)), CAST(1.680000 AS Decimal(18, 6)), CAST(0.000000 AS Decimal(18, 6)), 2, CAST(1654.410000 AS Decimal(18, 6)))
+INSERT INTO [dbo].[TarrifНабор] ([ID], [CW], [HW], [S], [E_T], [E_F], [E_O], [HomID], [Gas]) VALUES (3, CAST(20.380000 AS Decimal(18, 6)), CAST(97.890000 AS Decimal(18, 6)), CAST(9.560000 AS Decimal(18, 6)), CAST(0.900000 AS Decimal(18, 6)), CAST(1.680000 AS Decimal(18, 6)), CAST(0.000000 AS Decimal(18, 6)), 3, CAST(1654.410000 AS Decimal(18, 6)))
+SET IDENTITY_INSERT [dbo].[TarrifНабор] OFF

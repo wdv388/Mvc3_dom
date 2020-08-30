@@ -169,7 +169,7 @@ namespace MvcHOME.Controllers
                 {
                     return RedirectToAction("Create", "Electricity", new { id = sewage.HomID }); 
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Records",new {id=sewage.HomID });
             }
 
             ViewBag.HomID = new SelectList(db.HomItems, "ID", "ID", sewage.HomID);

@@ -1,14 +1,14 @@
 
 -- --------------------------------------------------
--- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
+-- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/10/2015 21:15:24
--- Generated from EDMX file: C:\Users\max\Documents\Visual Studio 2012\Projects\Mvc3_dom\MvcHOME\Model1.edmx
+-- Date Created: 04/27/2020 18:51:47
+-- Generated from EDMX file: C:\Users\Prime\Documents\Visual Studio 2012\Projects\Mvc3_dom\MvcHOME\Model1.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [C:\Users\max\Documents\Visual Studio 2012\Projects\Mvc3_dom\MvcHOME\App_Data\Database_baseDOM.mdf];
+USE [C:\Users\Prime\Documents\Visual Studio 2012\Projects\Mvc3_dom\MvcHOME\App_Data\Database_baseDOM.mdf];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -38,6 +38,9 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_HomGas]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[GasНабор] DROP CONSTRAINT [FK_HomGas];
 GO
+IF OBJECT_ID(N'[dbo].[FK_HomLimits]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[LimitsНабор] DROP CONSTRAINT [FK_HomLimits];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -66,6 +69,9 @@ IF OBJECT_ID(N'[dbo].[Benefit]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[GasНабор]', 'U') IS NOT NULL
     DROP TABLE [dbo].[GasНабор];
+GO
+IF OBJECT_ID(N'[dbo].[LimitsНабор]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[LimitsНабор];
 GO
 
 -- --------------------------------------------------
@@ -262,6 +268,7 @@ ADD CONSTRAINT [FK_HomCold_Water]
     REFERENCES [dbo].[HomItems]
         ([ID])
     ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_HomCold_Water'
 CREATE INDEX [IX_FK_HomCold_Water]
@@ -276,6 +283,7 @@ ADD CONSTRAINT [FK_HomHot_Water]
     REFERENCES [dbo].[HomItems]
         ([ID])
     ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_HomHot_Water'
 CREATE INDEX [IX_FK_HomHot_Water]
@@ -290,6 +298,7 @@ ADD CONSTRAINT [FK_HomElectricity]
     REFERENCES [dbo].[HomItems]
         ([ID])
     ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_HomElectricity'
 CREATE INDEX [IX_FK_HomElectricity]
@@ -304,6 +313,7 @@ ADD CONSTRAINT [FK_HomTarrif]
     REFERENCES [dbo].[HomItems]
         ([ID])
     ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_HomTarrif'
 CREATE INDEX [IX_FK_HomTarrif]
@@ -318,6 +328,7 @@ ADD CONSTRAINT [FK_HomSewage]
     REFERENCES [dbo].[HomItems]
         ([ID])
     ON DELETE CASCADE ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_HomSewage'
 CREATE INDEX [IX_FK_HomSewage]
@@ -332,6 +343,7 @@ ADD CONSTRAINT [FK_HomBenefit]
     REFERENCES [dbo].[HomItems]
         ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_HomBenefit'
 CREATE INDEX [IX_FK_HomBenefit]
@@ -346,6 +358,7 @@ ADD CONSTRAINT [FK_HomGas]
     REFERENCES [dbo].[HomItems]
         ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_HomGas'
 CREATE INDEX [IX_FK_HomGas]
@@ -360,6 +373,7 @@ ADD CONSTRAINT [FK_HomLimits]
     REFERENCES [dbo].[HomItems]
         ([ID])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_HomLimits'
 CREATE INDEX [IX_FK_HomLimits]
